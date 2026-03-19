@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         'secondary-beige': 'var(--secondary-beige)',
+        'primary-red': 'var(--gradient-dark-red)',
       },
       fontFamily: {
         'calling-heart': ['"Calling Heart"', 'sans-serif'],

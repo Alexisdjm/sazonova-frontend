@@ -3,10 +3,12 @@ const images = {
   onion: require("./icons/onion.png"),
   onion2: require("./icons/onion2.png"),
   garlic: require("./icons/garlic.png"),
-  sazonovaLogoBeige: require("./icons/sazonova_logo_beige.png"),
+  sazonovaLogoBeige: require("./icons/logo_beige.png"),
   sazonovaLogoRed: require("./icons/sazonova_logo_red.png"),
   shoppingBag: require("./icons/shopping-bag.png"),
   clickDown: require("./icons/Polygon2.png"),
+  menu: require("./icons/menu_btn.png"),
+  menuRed: require("./icons/menu_btn_red.png"),
   // Images
   ajo: require("./images/ajo.png"),
   adobo: require("./images/adobo.png"),

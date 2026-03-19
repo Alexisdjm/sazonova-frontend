@@ -13,4 +13,9 @@
 
 body{
   background-color: var(--bg-color);
+  overflow-x: hidden
+}
+
+header {
+  background-color: var(--bg-color)
 }
