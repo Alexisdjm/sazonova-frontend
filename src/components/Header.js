@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import images from "../assets/exporting";
+import { LogoMixedIcon, InstagramIcon, TikTokIcon, PhoneIcon } from "./icons";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,14 +46,32 @@ const Header = () => {
             </svg>
           </button>
         </div>
+
+        <div className="flex justify-center mt-4">
+          <LogoMixedIcon className="h-40 w-auto" />
+        </div>
+
         <nav className="flex-1 flex flex-col items-center justify-center">
-          <ul className="flex flex-col items-center space-y-4 text-2xl text-primary-red font-semibold">
-            <li><a href="#item1" className="hover:opacity-70 transition-opacity font-ubuntu">Inicio</a></li>
-            <li><a href="#item2" className="hover:opacity-70 transition-opacity font-ubuntu">Productos</a></li>
-            <li><a href="#item3" className="hover:opacity-70 transition-opacity font-ubuntu">Recetas</a></li>
-            <li><a href="#item4" className="hover:opacity-70 transition-opacity font-ubuntu">Nosotros</a></li>
+          <ul className="flex flex-col items-center space-y-3 text-2xl text-primary-red font-semibold">
+            <li><a href="#item1" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Inicio</a></li>
+            <li><a href="#item2" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Productos</a></li>
+            <li><a href="#item3" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Recetas</a></li>
+            <li><a href="#item4" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Nosotros</a></li>
           </ul>
         </nav>
+
+        {/* Íconos Sociales y Contacto */}
+        <div className="flex justify-center space-x-6 pb-8 text-[#7D030A]">
+          <a href="#instagram" className="hover:opacity-70 transition-opacity" aria-label="Instagram">
+            <InstagramIcon className="h-8 w-8 fill-current" />
+          </a>
+          <a href="#tiktok" className="hover:opacity-70 transition-opacity" aria-label="TikTok">
+            <TikTokIcon className="h-8 w-8 fill-current" />
+          </a>
+          <a href="#llamar" className="hover:opacity-70 transition-opacity" aria-label="Llamar">
+            <PhoneIcon className="h-8 w-8 fill-current" />
+          </a>
+        </div>
       </div>
 
     <header className={`z-50 w-[100vw] px-14 py-4 transition-all duration-300 ${
