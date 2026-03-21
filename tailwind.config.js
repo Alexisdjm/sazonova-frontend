@@ -13,6 +13,7 @@ module.exports = {
         'calling-heart': ['"Calling Heart"', 'sans-serif'],
         'ubuntu': ['Ubuntu', 'sans-serif'],
         'sugo': ['"Sugo Pro Classic Trial"', 'sans-serif'],
+        'pangolin': ['Pangolin', 'cursive', 'sans-serif'],
       },
       backgroundImage: {
         'hero-gradient': 'radial-gradient(circle, var(--gradient-light-red) 0%, var(--gradient-dark-red) 100%)',

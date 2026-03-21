@@ -2,3 +2,8 @@ export { default as InstagramIcon } from './InstagramIcon';
 export { default as TikTokIcon } from './TikTokIcon';
 export { default as PhoneIcon } from './PhoneIcon';
 export { default as LogoMixedIcon } from './LogoMixedIcon';
+export { default as OnionIcon } from './OnionIcon';
+export { default as OnionTwoIcon } from './OnionTwoIcon';
+export { default as OnionThreeIcon } from './OnionThreeIcon';
+export { default as GarlicIcon } from './GarlicIcon';
+export { default as GarlicTwoIcon } from './GarlicTwoIcon';

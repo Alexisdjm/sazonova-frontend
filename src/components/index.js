@@ -4,3 +4,4 @@ export { default as Recipes } from './Recipes';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as ClickDown } from './ClickDown';
+export { default as RecipeCard } from './RecipeCard';

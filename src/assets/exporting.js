@@ -19,6 +19,12 @@ const images = {
   image22: require("./images/pngwing.com (22).png"),
   image38: require("./images/pngwing.com (38).png"),
   image39: require("./images/pngwing.com (39).png"),
+  carne1: require("./images/carne1.png"),
+  carne2: require("./images/carne2.png"),
+  carne3: require("./images/carne3.png"),
+  carne4: require("./images/carne4.png"),
+  empanadas: require("./images/empanadas.png"),
+  pescado: require("./images/pescado.png"),
 };
 
 export default images;
