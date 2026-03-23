@@ -1,16 +1,14 @@
-import React from "react";
-
-const OnionIcon = ({ className = "", width = "24", height = "24", ...props }) => (
-  <svg 
-    width={width} 
-    height={height} 
-    viewBox="0 0 512 512" 
+const OnionIcon = ({ className = "", color = "#000", width = "24", height = "24", ...props }) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 512 512"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
     {...props}
   >
-    <g transform="translate(0,512) scale(0.10,-0.10)" fill="currentColor" stroke="none">
+    <g transform="translate(0,512) scale(0.10,-0.10)" fill={color} stroke="none">
 <path d="M1881 5104 c-13 -9 -30 -32 -38 -52 -14 -34 -13 -37 16 -91 238 -436
 338 -791 373 -1316 14 -222 9 -267 -35 -294 -45 -28 -56 -50 -72 -149 -35
 -202 -151 -335 -400 -460 -44 -22 -183 -81 -310 -132 -427 -171 -569 -252

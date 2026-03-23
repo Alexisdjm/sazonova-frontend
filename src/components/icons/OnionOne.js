@@ -1,10 +1,10 @@
-const OnionOne = ({ className = "", width = "24", height = "24", ...props }) => {
+const OnionOne = ({ className = "", color = "#000", width = "24", height = "24", ...props }) => {
   return (
     <svg
       width={width}
       height={height}
       viewBox="0 0 24 24" /* ← Ajusta este viewBox al de tu SVG original si es diferente */
-      fill="currentColor"
+      fill={color}
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       {...props}

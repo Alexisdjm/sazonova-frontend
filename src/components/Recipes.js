@@ -2,6 +2,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { RecipeCard } from "./index";
 import images from "../assets/exporting";
+import { GarlicTwoIcon, OnionThreeIcon } from "./icons";
+import { CustomLeftArrow, CustomRightArrow, CustomDot } from "./CarouselControls";
+import BrandSpin from "./BrandSpin";
 
 const responsive = {
   desktop: {
@@ -18,46 +21,10 @@ const responsive = {
   }
 };
 
-const CustomLeftArrow = ({ onClick }) => {
-  return (
-    <button
-      onClick={() => onClick()}
-      className="absolute left-0 md:left-2 top-1/2 -translate-y-[calc(50%+2rem)] bg-secondary-beige text-[#650208] p-3 rounded-full z-10 hover:scale-110 transition-transform shadow-lg"
-      aria-label="Previous"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </button>
-  );
-};
-
-const CustomRightArrow = ({ onClick }) => {
-  return (
-    <button
-      onClick={() => onClick()}
-      className="absolute right-0 md:right-2 top-1/2 -translate-y-[calc(50%+2rem)] bg-secondary-beige text-[#650208] p-3 rounded-full z-10 hover:scale-110 transition-transform shadow-lg"
-      aria-label="Next"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
-  );
-};
-
-const CustomDot = ({ onClick, active }) => {
-  return (
-    <li className="mx-1">
-      <button
-        style={{ cursor: "pointer" }}
-        className={`block h-3 rounded-full transition-all duration-300 ${active ? "bg-[#FFEDCE] w-8 shadow-md" : "bg-[#FFEDCE] w-3 opacity-50 hover:opacity-100"}`}
-        onClick={() => onClick()}
-      />
-    </li>
-  );
-};
-
 const Recipes = () => {
   return (
     <>
-    <div className="w-full h-[900px] bg-[#650208] bg-fixed overflow-hidden">
+    <div className="relative w-full bg-[#650208] bg-fixed overflow-hidden">
       <div className="w-fit mx-auto pt-24 flex flex-col items-center justify-center">
         <h2
           data-text="conoce"
@@ -78,7 +45,7 @@ const Recipes = () => {
           marca
         </h3>
         </div>
-        <div className="w-[80%] max-w-10xl mx-auto px-2 sm:px-7">
+        <div className="relative z-10 w-[80%] max-w-10xl mx-auto px-2 sm:px-7">
           <Carousel
             responsive={responsive}
             infinite={true}
@@ -101,6 +68,14 @@ const Recipes = () => {
             <RecipeCard image={images.pescado} title="Pescado Horneado" description="Fresco y ligero." time="30 min" />
           </Carousel>
         </div>
+        <div className="w-fit mx-auto my-10">
+            <button className="bg-secondary-beige text-primary-red px-6 py-3 font-semibold rounded-full ">Ver Recetas</button>
+        </div>
+
+        <OnionThreeIcon color="#78030A" width={400} height={400} className="rotate-12 absolute z-[0] top-[2em] right-[-5%]" />
+        <GarlicTwoIcon color="#78030A" width={400} height={400} className="rotate-[-12deg] absolute z-[0] bottom-0 left-[-5%]" />
+        <img width={250} height={250} src={images.cuchara} alt="cuchara" className="rotate-[-90deg] absolute z-[0] -top-[2.5em] left-20" />
+        <BrandSpin width={70} height={70} className="absolute z-[0] bottom-10 left-10 opacity-80" />
     </div>
     </>
   )

@@ -1,16 +1,14 @@
-import React from "react";
-
-const GarlicIcon = ({ className = "", width = "24", height = "24", ...props }) => (
-  <svg 
-    width={width} 
-    height={height} 
-    viewBox="0 0 512 512" 
+const GarlicIcon = ({ className = "", color = "#000", width = "24", height = "24", ...props }) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 512 512"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
     {...props}
   >
-    <g transform="translate(0,512) scale(0.10,-0.10)" fill="currentColor" stroke="none">
+    <g transform="translate(0,512) scale(0.10,-0.10)" fill={color} stroke="none">
 <path d="M1115 4829 c-52 -25 -1058 -1028 -1088 -1084 -33 -62 -31 -165 6
 -227 34 -59 71 -87 178 -137 139 -65 230 -85 399 -85 160 0 224 11 358 65 147
 58 197 111 155 167 -30 40 -69 40 -155 -3 -198 -97 -420 -110 -623 -38 -96 34

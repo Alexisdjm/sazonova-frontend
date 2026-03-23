@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import images from "../assets/exporting";
 import { LogoMixedIcon, InstagramIcon, TikTokIcon, PhoneIcon } from "./icons";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,15 +49,17 @@ const Header = () => {
         </div>
 
         <div className="flex justify-center mt-4">
-          <LogoMixedIcon className="h-40 w-auto" />
+          <Link to="/" onClick={() => setIsSidebarOpen(false)}>
+            <LogoMixedIcon className="h-40 w-auto" />
+          </Link>
         </div>
 
         <nav className="flex-1 flex flex-col items-center justify-center">
           <ul className="flex flex-col items-center space-y-3 text-2xl text-primary-red font-semibold">
-            <li><a href="#item1" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Inicio</a></li>
-            <li><a href="#item2" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Productos</a></li>
-            <li><a href="#item3" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Recetas</a></li>
-            <li><a href="#item4" className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Nosotros</a></li>
+            <li><Link to="/" onClick={() => setIsSidebarOpen(false)} className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Inicio</Link></li>
+            <li><Link to="/products/all" onClick={() => setIsSidebarOpen(false)} className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Productos</Link></li>
+            <li><Link to="/recipes" onClick={() => setIsSidebarOpen(false)} className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Recetas</Link></li>
+            <li><Link to="/about" onClick={() => setIsSidebarOpen(false)} className="hover:opacity-70 transition-opacity font-ubuntu font-medium">Nosotros</Link></li>
           </ul>
         </nav>
 
@@ -80,8 +83,8 @@ const Header = () => {
         <nav>
             <ul className="flex flex-row justify-between items-center">
                 <li><button onClick={() => setIsSidebarOpen(true)}><img src={isScrolled ? images.menuRed : images.menu} alt="Menu" className="h-[20px] w-auto" /></button></li>
-                <li><button>{isScrolled ? <img src={images.sazonovaLogoRed} alt="Logo" className="h-12 w-auto" /> : <img src={images.sazonovaLogoBeige} alt="Logo" className="h-12 w-auto" />}</button></li>
-                <li><button className={`${isScrolled ? "text-primary-red" : "text-secondary-beige"} font-ubuntu`}>Contact</button></li>
+                <li><Link to="/">{isScrolled ? <img src={images.sazonovaLogoRed} alt="Logo" className="h-12 w-auto" /> : <img src={images.sazonovaLogoBeige} alt="Logo" className="h-12 w-auto" />}</Link></li>
+                <li><Link to="/contact" className={`${isScrolled ? "text-primary-red" : "text-secondary-beige"} font-ubuntu`}>Contact</Link></li>
             </ul>
         </nav>
     </header>

@@ -25,6 +25,8 @@ const images = {
   carne4: require("./images/carne4.png"),
   empanadas: require("./images/empanadas.png"),
   pescado: require("./images/pescado.png"),
+  cuchara: require("./images/cuchara.png"),
+  spin: require("./images/spin.png"),
 };
 
 export default images;

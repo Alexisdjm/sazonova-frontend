@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PhoneIcon = ({ className = "w-6 h-6", ...props }) => (
   <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" preserveAspectRatio="xMidYMid meet" className={className} {...props}>
     <g transform="translate(0,25) scale(0.1,-0.1)" fill="currentColor" stroke="none">
