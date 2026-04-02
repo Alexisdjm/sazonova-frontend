@@ -27,6 +27,12 @@ const images = {
   pescado: require("./images/pescado.png"),
   cuchara: require("./images/cuchara.png"),
   spin: require("./images/spin.png"),
+  video1: require("./videos/video_carne.mp4"),
+  glass: require("./images/glass.png"),
+  hand: require("./images/hand.png"),
+  standings: require("./images/standings.png"),
+  vector2: require("./images/vector2.png"),
+  vector3: require("./images/vector3.png"),
 };
 
 export default images;

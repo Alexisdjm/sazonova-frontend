@@ -5,6 +5,7 @@ import images from "../assets/exporting";
 import { GarlicTwoIcon, OnionThreeIcon } from "./icons";
 import { CustomLeftArrow, CustomRightArrow, CustomDot } from "./CarouselControls";
 import BrandSpin from "./BrandSpin";
+import AnimatedButton from "./AnimatedButton";
 
 const responsive = {
   desktop: {
@@ -69,7 +70,7 @@ const Recipes = () => {
           </Carousel>
         </div>
         <div className="w-fit mx-auto my-10">
-            <button className="bg-secondary-beige text-primary-red px-6 py-3 font-semibold rounded-full ">Ver Recetas</button>
+            <AnimatedButton className="cursor-pointer">Ver Recetas</AnimatedButton>
         </div>
 
         <OnionThreeIcon color="#78030A" width={400} height={400} className="rotate-12 absolute z-[0] top-[2em] right-[-5%]" />

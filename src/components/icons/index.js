@@ -7,3 +7,5 @@ export { default as OnionTwoIcon } from './OnionTwoIcon';
 export { default as OnionThreeIcon } from './OnionThreeIcon';
 export { default as GarlicIcon } from './GarlicIcon';
 export { default as GarlicTwoIcon } from './GarlicTwoIcon';
+export { default as Vector2Icon } from './Vector2Icon';
+export { default as Vector3Icon } from './Vector3Icon';

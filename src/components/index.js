@@ -6,3 +6,5 @@ export { default as Footer } from './Footer';
 export { default as ClickDown } from './ClickDown';
 export { default as RecipeCard } from './RecipeCard';
 export { default as NotFound } from './NotFound';
+export { default as VideoComponent } from './VideoComponent';
+export { default as Slider } from './Slider';

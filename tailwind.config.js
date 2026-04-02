@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'secondary-beige': 'var(--secondary-beige)',
         'primary-red': 'var(--gradient-dark-red)',
+        'brand-orange': 'var(--adobo-orange-bg)',
       },
       fontFamily: {
         'calling-heart': ['"Calling Heart"', 'sans-serif'],
