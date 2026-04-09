@@ -1,6 +1,27 @@
 import images from '../assets/exporting';
+import AnimatedButton from './AnimatedButton';
+import { useNavigate } from 'react-router-dom';
 
-const Slide = ({ children, background = 'red-logo', image = images.sazonovaLogoRed }) => {
+const Slide = ({
+  children,
+  background = 'red-logo',
+  image = images.sazonovaLogoRed,
+  button = false,
+  buttonUrl = '/',
+  buttonText = 'Ver más',
+  buttonPosition = 'bottom-16 left-1/2 -translate-x-1/2',
+}) => {
+  const navigate = useNavigate();
+
+  const handleAction = () => {
+    if (!buttonUrl) return;
+    if (buttonUrl.startsWith('http://') || buttonUrl.startsWith('https://')) {
+      window.location.href = buttonUrl;
+    } else {
+      navigate(buttonUrl);
+    }
+  };
+
   return (
     <div className={`relative w-full h-screen overflow-hidden ${background === 'red-logo' ? 'bg-primary-red' : 'bg-brand-orange'}`}>
       {background === 'red-logo' && (
@@ -42,6 +63,13 @@ const Slide = ({ children, background = 'red-logo', image = images.sazonovaLogoR
 
       <div className="relative z-10 w-full h-full">
         {children}
+        {button && (
+          <div className={`absolute ${buttonPosition} z-50`}>
+            <AnimatedButton onClick={handleAction}>
+              {buttonText}
+            </AnimatedButton>
+          </div>
+        )}
       </div>
     </div>
   );
