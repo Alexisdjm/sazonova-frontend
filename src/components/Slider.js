@@ -1,7 +1,8 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import images from '../assets/exporting';
-import { Vector2Icon } from './icons';
+import { Vector2Icon, Vector3Icon } from './icons';
+import Slide from './Slide';
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
@@ -40,17 +41,7 @@ const CustomRightArrow = ({ onClick }) => {
 
 const Slider = () => {
   return (
-    <section className="relative w-full h-screen bg-primary-red overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none flex flex-col gap-y-3 py-3 -ml-16">
-        {[...Array(35)].map((_, i) => (
-          <div key={i} className={`flex gap-x-3 min-w-max ${i % 2 !== 0 ? '-translate-x-[62px]' : ''}`}>
-            {[...Array(40)].map((_, j) => (
-              <img key={j} src={images.sazonovaLogoRed} className="w-[100px] h-auto object-contain" alt="" />
-            ))}
-          </div>
-        ))}
-      </div>
-
+    <>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -59,29 +50,41 @@ const Slider = () => {
         containerClass="w-full h-full z-10"
         itemClass="w-full h-full"
       >
-        <div className="w-full h-[100vh] flex items-center flex-col justify-end">
-          <div className='text-center mb-2'>
-            <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
-            <span className='font-ubuntu text-secondary-beige md:text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
-            <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h1>
-            <h3
-              data-text="a su comida"
-              className='isolate relative z-10 font-calling-heart -mt-10 text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_var(--gradient-dark-red)] before:text-primary-red'
-            >
-              a su comida
-            </h3>
+        <Slide image={images.sazonovaLogoRed} background="red-logo">
+          <div className="w-full h-full flex items-center  flex-col justify-end">
+            <div className='text-center mb-2 relative z-10'>
+              <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
+              <span className='font-ubuntu text-secondary-beige md:text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
+              <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h1>
+              <h3
+                data-text="a su comida"
+                className='isolate relative z-10 font-calling-heart -mt-10 text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_var(--gradient-dark-red)] before:text-primary-red'
+              >
+                a su comida
+              </h3>
+            </div>
+            <img className='z-10' src={images.glass} width={450} alt="glass" />
+            <img src={images.cuchara} width={250} alt="cuchara" className="z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
+            <Vector2Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
           </div>
-          <img src={images.glass} width={450} alt="glass" />
-        </div>
-        <div className="w-full h-[100vh] flex items-center justify-center">
-          <h2 className="text-white text-5xl md:text-7xl font-bold uppercase tracking-widest drop-shadow-2xl">
-            SLIDE DOS
-          </h2>
-        </div>
+        </Slide>
+        <Slide background="orange-lines">
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full h-full flex items-center  flex-col justify-end">
+            <div className='text-center mb-2 relative z-10'>
+              <span className='font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl'>NO SEPARES AL</span>
+              <h1 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h1>
+            </div>
+            <img className='z-10' src={images.standings} width={550} alt="glass" />
+            </div>
+            <img src={images.badge1} width={100} alt="cuchara" className="z-10 absolute bottom-[65%] left-[34.5%]" />
+            <img src={images.badge2} width={100} alt="cuchara" className="z-10 absolute bottom-[48%] left-[58%]" />
+            <img src={images.hand} width={150} alt="cuchara" className="z-10 absolute bottom-0 left-[48%] animate-up-down" />
+            <Vector3Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
+          </div>
+        </Slide>
       </Carousel>
-      <img src={images.cuchara} width={250} alt="cuchara" className="rotate-[-75deg] absolute z-0 top-1/4 right-[-3rem]" />
-      <Vector2Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
-    </section>
+    </>
   );
 };
 

@@ -33,6 +33,9 @@ const images = {
   standings: require("./images/standings.png"),
   vector2: require("./images/vector2.png"),
   vector3: require("./images/vector3.png"),
+  badge1: require("./images/badge1.png"),
+  badge2: require("./images/badge2.png"),
+
 };
 
 export default images;

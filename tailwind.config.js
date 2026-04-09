@@ -18,6 +18,15 @@ module.exports = {
       },
       backgroundImage: {
         'hero-gradient': 'radial-gradient(circle, var(--gradient-light-red) 0%, var(--gradient-dark-red) 100%)',
+      },
+      keyframes: {
+        'up-down': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(30px)' },
+        }
+      },
+      animation: {
+        'up-down': 'up-down 3s ease-in-out infinite',
       }
     },
   },
