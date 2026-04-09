@@ -71,14 +71,16 @@ const Slider = () => {
         <Slide background="orange-lines">
           <div className="w-full h-full flex items-center justify-center">
             <div className="w-full h-full flex items-center  flex-col justify-end">
-            <div className='text-center mb-2 relative z-10'>
-              <span className='font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl'>NO SEPARES AL</span>
-              <h1 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h1>
+            <div className='text-center mb-2 relative z-10 flex flex-col items-center'>
+              <span className='font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl relative z-20'>NO SEPARES AL</span>
+              <div className="relative inline-block">
+                <h1 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h1>
+                <img src={images.badge1} width={100} alt="badge superior" className="absolute top-0 left-[-40px] z-20" />
+                <img src={images.badge2} width={100} alt="badge inferior" className="absolute bottom-0 right-[-40px] z-20" />
+              </div>
             </div>
             <img className='z-10' src={images.standings} width={550} alt="glass" />
             </div>
-            <img src={images.badge1} width={100} alt="cuchara" className="z-10 absolute bottom-[65%] left-[34.5%]" />
-            <img src={images.badge2} width={100} alt="cuchara" className="z-10 absolute bottom-[48%] left-[58%]" />
             <img src={images.hand} width={150} alt="cuchara" className="z-10 absolute bottom-0 left-[48%] animate-up-down" />
             <Vector3Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
           </div>
