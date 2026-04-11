@@ -12,7 +12,7 @@
 .map-pin {
   width: 24px;
   height: 24px;
-  background-color: #E2001A; /* Color rojo (Ajustar por tu variable si existe) */
+  background-color: #E47E1A; /* Color rojo (Ajustar por tu variable si existe) */
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -22,7 +22,7 @@
 /* Efecto al pasar el mouse por el pin */
 .map-pin-container:hover .map-pin {
   transform: scale(1.3);
-  background-color: #ff1a35;
+  background-color: #E47E1A;
 }
 
 /* La tarjeta que aparece con la información (Tooltip) */
