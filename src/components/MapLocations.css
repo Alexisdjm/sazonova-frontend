@@ -1,0 +1,99 @@
+/* CSS exclusivo para los pines y tooltips */
+
+.map-pin-container {
+  position: absolute;
+  /* El transform centra el pin sobre las coordenadas en vez de hacerlo desde su esquina superior izquierda */
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* El diseño del PIN propiamente */
+.map-pin {
+  width: 24px;
+  height: 24px;
+  background-color: #E2001A; /* Color rojo (Ajustar por tu variable si existe) */
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Efecto al pasar el mouse por el pin */
+.map-pin-container:hover .map-pin {
+  transform: scale(1.3);
+  background-color: #ff1a35;
+}
+
+/* La tarjeta que aparece con la información (Tooltip) */
+.map-tooltip {
+  position: absolute;
+  bottom: 130%; /* Aparece por encima del pin */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: #333;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 220px; /* Ancho de la tarjeta */
+  text-align: center;
+  z-index: 20;
+  animation: fadeInTooltip 0.25s ease-out forwards;
+}
+
+/* El triangulito de la tarjeta que apunta hacia abajo */
+.map-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.map-tooltip h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: #E47E1A; /* Titulo de la ubicacion en naranja */
+  font-weight: 700;
+}
+
+.map-tooltip p {
+  margin: 0 0 14px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.3;
+}
+
+.map-tooltip button {
+  background-color: #E47E1A; /* Boton en naranja */
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.map-tooltip button:hover {
+  background-color: #C5670B; /* Hover del boton mas oscuro */
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}

@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Homepage, NotFound } from './components';
+import { Homepage, NotFound} from './components';
 
 function App() {
   return (

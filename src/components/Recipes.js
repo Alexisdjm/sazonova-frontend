@@ -70,7 +70,9 @@ const Recipes = () => {
           </Carousel>
         </div>
         <div className="w-fit mx-auto my-10">
-            <AnimatedButton className="cursor-pointer">Ver Recetas</AnimatedButton>
+          <AnimatedButton
+            styleKind="style3"
+            className="cursor-pointer">Ver Recetas</AnimatedButton>
         </div>
 
         <OnionThreeIcon color="#78030A" width={400} height={400} className="rotate-12 absolute z-[0] top-[2em] right-[-5%]" />

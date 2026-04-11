@@ -8,3 +8,5 @@ export { default as RecipeCard } from './RecipeCard';
 export { default as NotFound } from './NotFound';
 export { default as VideoComponent } from './VideoComponent';
 export { default as Slider } from './Slider';
+export { default as MapLocations } from './MapLocations';
+

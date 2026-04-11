@@ -18,6 +18,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-gradient': 'radial-gradient(circle, var(--gradient-light-red) 0%, var(--gradient-dark-red) 100%)',
+        'brand-orange-bg': 'var(--adobo-orange-bg)'
       },
       keyframes: {
         'up-down': {

@@ -8,8 +8,9 @@ const Slide = ({
   image = images.sazonovaLogoRed,
   button = false,
   buttonUrl = '/',
+  buttonStyle = 'style1',
   buttonText = 'Ver más',
-  buttonPosition = 'bottom-16 left-1/2 -translate-x-1/2',
+  buttonPosition = 'bottom-1 left-1/2 -translate-x-1/2',
 }) => {
   const navigate = useNavigate();
 
@@ -65,7 +66,7 @@ const Slide = ({
         {children}
         {button && (
           <div className={`absolute ${buttonPosition} z-50`}>
-            <AnimatedButton onClick={handleAction}>
+            <AnimatedButton styleKind={buttonStyle} onClick={handleAction}>
               {buttonText}
             </AnimatedButton>
           </div>

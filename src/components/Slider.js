@@ -50,7 +50,7 @@ const Slider = () => {
         containerClass="w-full h-full z-10"
         itemClass="w-full h-full"
       >
-        <Slide image={images.sazonovaLogoRed} background="red-logo" button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-16 right-16">
+        <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16">
           <div className="w-full h-full flex items-center  flex-col justify-end">
             <div className='text-center mb-2 relative z-10'>
               <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
@@ -68,7 +68,7 @@ const Slider = () => {
             <Vector2Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
           </div>
         </Slide>
-        <Slide background="orange-lines">
+        <Slide button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16" buttonStyle='style2' background="orange-lines">
           <div className="w-full h-full flex items-center justify-center">
             <div className="w-full h-full flex items-center  flex-col justify-end">
             <div className='text-center mb-2 relative z-10 flex flex-col items-center'>
