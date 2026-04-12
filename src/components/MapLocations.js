@@ -189,8 +189,8 @@ const MapLocations = () => {
         ))}
       </div>
 
-      <div className="relative z-10 font-sugo flex flex-col items-center mb-10">
-        <h1 className="text-brand-orange text-8xl font-bold text-center -mb-10">DONDE</h1>
+      <div className="relative z-10 font-sugo flex flex-col items-center mb-10 mt-20 px-10">
+        <h1 className="text-brand-orange text-8xl font-semibold text-center -mb-10">DONDE</h1>
         <h2 data-text="encontrarnos?" className="isolate relative text-primary-red font-calling-heart text-8xl font-medium text-center before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_var(--bg-color)]">encontrarnos?</h2>
       </div>
       {/* El contenedor debe tener tamaño exacto para que mapbox sepa donde dibujarse */}

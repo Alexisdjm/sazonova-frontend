@@ -1,4 +1,4 @@
-import { Header, HeroBanner, Recipes, VideoComponent, Slider, MapLocations } from "./";
+import { Header, HeroBanner, Recipes, VideoComponent, Slider, MapLocations, Compare } from "./";
 import images from "../assets/exporting";
 
 const Homepage = () => {
@@ -10,6 +10,7 @@ const Homepage = () => {
       <VideoComponent videoSrc={images.video1}/>
       <Slider />
       <MapLocations />
+      <Compare />
     </>
   )
 }

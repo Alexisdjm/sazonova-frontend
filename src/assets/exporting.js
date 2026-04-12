@@ -37,6 +37,9 @@ const images = {
   badge2: require("./images/badge2.png"),
   map: require("./images/map.png"),
   sazonovaLetters: require("./icons/SAZONOVA.webp"),
+  plate: require("./images/break-plates.webp"),
+  compareBg: require("./images/bg-fusion.webp"),
+  sazonovaMobile: require("./images/sazonova-mobile.webp"),
 };
 
 export default images;
