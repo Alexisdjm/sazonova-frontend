@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Vector3Icon = ({ className = "", color = "#7C0209", width = "1440", height = "660", ...props }) => (
   <svg
     width={width}

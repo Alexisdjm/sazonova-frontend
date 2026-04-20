@@ -10,3 +10,4 @@ export { default as VideoComponent } from './VideoComponent';
 export { default as Slider } from './Slider';
 export { default as MapLocations } from './MapLocations';
 export { default as Compare } from './Compare';
+export { default as Form } from './Form';
