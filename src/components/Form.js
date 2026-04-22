@@ -3,7 +3,7 @@ import { Vector4Icon } from './icons';
 
 const Form = () => {
   return (
-    <section className="px-16 py-16 flex flex-col items-center relative overflow-hidden">
+    <section className="px-16 pt-20 pb-40 flex flex-col items-center relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 z-0 pointer-events-none flex flex-col gap-y-3 py-3 -ml-16">
         {[...Array(35)].map((_, i) => (
@@ -28,7 +28,7 @@ const Form = () => {
         </h2>
       </div>
 
-      <div className="bg-brand-orange md:p-16 w-full max-w-4xl relative z-10">
+      <div className="bg-brand-orange px-16 pt-16 pb-32 w-full max-w-4xl relative z-10">
         {/* Contáctanos Badge */}
         <div className="bg-primary-red text-white font-sugo tracking-wider rounded-3xl px-16 py-4 shadow-lg flex items-center justify-center">
           <span className="text-5xl uppercase">Contáctanos</span>
@@ -98,6 +98,7 @@ const Form = () => {
             Enviar
           </button>
         </form>
+        <img src={images.formBadge} alt="form badge" className="absolute -bottom-32 -right-32" />
       </div>
     </section>
   )

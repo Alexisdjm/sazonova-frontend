@@ -12,11 +12,10 @@ const images = {
   // Images
   ajo: require("./images/ajo.webp"),
   adobo: require("./images/adobo.webp"),
-  image18: require("./images/pngwing.com (18).png"),
-  image19: require("./images/pngwing.com (19).png"),
-  image20: require("./images/pngwing.com (20).png"),
-  image21: require("./images/pngwing.com (21).png"),
-  image22: require("./images/pngwing.com (22).png"),
+  garlicRain: require("./images/garlic.webp"),
+  chiliRain: require("./images/chili.webp"),
+  cilantroRain: require("./images/cilantro.webp"),
+  onionRain: require("./images/onion.webp"),
   image38: require("./images/pngwing.com (38).webp"),
   image39: require("./images/pngwing.com (39).webp"),
   carne1: require("./images/carne1.png"),
@@ -40,6 +39,7 @@ const images = {
   plate: require("./images/break-plates.webp"),
   compareBg: require("./images/bg-fusion.webp"),
   sazonovaMobile: require("./images/sazonova-mobile.webp"),
+  formBadge: require("./images/form-badge.webp"),
 };
 
 export default images;
