@@ -45,9 +45,10 @@ const Slider = () => {
       <Carousel
         responsive={responsive}
         infinite={true}
+        removeArrowOnDeviceType={["mobile","tablet"]}
         customLeftArrow={<CustomLeftArrow />}
         customRightArrow={<CustomRightArrow />}
-        containerClass="w-full h-full z-10"
+        containerClass="w-full md:h-full h-[75vh] z-10"
         itemClass="w-full h-full"
       >
         <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16">

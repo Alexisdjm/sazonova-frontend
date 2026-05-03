@@ -60,7 +60,7 @@ const Compare = () => {
             onMouseEnter={() => setHoveredLeft(true)}
             onMouseLeave={() => setHoveredLeft(false)}
           >
-            <div className='w-3/5 mx-auto rotate-[7deg]'>
+            <div className='w-3/5 mx-auto rotate-[7deg] hidden md:block'>
               <h1 className='font-pangolin text-secondary-beige text-8xl font-medium'>Ajo En Polvo</h1>
               <p className='font-pangolin text-secondary-beige text-3xl font-medium w-3/5 pt-20'>El alma de la receta. Una explosión de especias para quienes no temen a la intensidad.</p>
             </div>
@@ -70,7 +70,7 @@ const Compare = () => {
             onMouseEnter={() => setHoveredRight(true)}
             onMouseLeave={() => setHoveredRight(false)}
           >
-            <div className='w-3/5 mx-auto flex flex-col items-end rotate-[-7deg]'>
+            <div className='w-3/5 mx-auto flex-col items-end rotate-[-7deg] hidden md:flex'>
               <p className='font-pangolin text-secondary-beige text-3xl font-medium w-3/5 text-right'>Tu solución todo en uno. Dale a tus platos un carácter vibrante y un color inconfundible.</p>
               <h1 className='font-pangolin text-secondary-beige text-8xl font-medium text-right pt-20'>Adobo</h1>
             </div>
@@ -81,11 +81,11 @@ const Compare = () => {
           <h1 className="font-sugo uppercase text-secondary-beige text-8xl font-medium">Sabe mejor?</h1>
         </div>
       </div>
-      <div className="absolute -top-10 -left-10 flex flex-col justify-between h-[110vh] z-10">
+      <div className="absolute -top-10 -left-10 hidden md:flex flex-col justify-between h-[110vh] z-10">
         <img className='rotate-[20deg]' width={200}  src={images.ajo} alt="" />
         <img className='rotate-[20deg]' width={300} src={images.image38} alt="" />
       </div>
-      <div className="absolute top-0 -right-28 flex flex-col justify-between h-[105vh] z-10">
+      <div className="md:flex hidden absolute top-0 -right-28 flex-col justify-between h-[105vh] z-10">
         <img className='rotate-90' height={300} width={300} src={images.image39} alt="" />
         <img className='rotate-[15deg]' width={200}  src={images.adobo} alt="" />
       </div>

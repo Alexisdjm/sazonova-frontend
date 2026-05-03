@@ -6,7 +6,7 @@ const VideoComponent = ({ videoSrc }) => {
       {/* Reproductor de video ocultando controles y a pantalla completa */}
       <video
         src={videoSrc}
-        className="w-full h-auto object-cover"
+        className="w-full md:h-auto h-screen object-cover"
         autoPlay
         loop
         muted

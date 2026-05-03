@@ -26,22 +26,22 @@ const Recipes = () => {
   return (
     <>
     <div className="relative w-full bg-[#650208] bg-fixed overflow-hidden">
-      <div className="w-fit mx-auto pt-24 flex flex-col items-center justify-center">
+      <div className="w-fit mx-auto pt-24 flex flex-col items-center justify-center relative z-10">
         <h2
           data-text="conoce"
-          className="isolate relative uppercase font-sugo text-8xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_#650208]"
+          className="isolate relative uppercase font-sugo md:text-8xl text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_#650208]"
         >
           conoce
         </h2>
         <h1
           data-text="nuestra"
-          className="isolate relative uppercase font-sugo -mt-6 text-8xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_#650208]"
+          className="isolate relative uppercase font-sugo md:-mt-6 -mt-4 md:text-8xl text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_#650208]"
         >
           nuestra
         </h1>
         <h3
           data-text="marca"
-          className="isolate relative font-calling-heart -mt-10 text-8xl font-bold text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_#650208]"
+          className="isolate relative font-calling-heart md:-mt-10 -mt-6 md:text-8xl text-7xl font-bold text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_#650208]"
         >
           marca
         </h3>
@@ -54,6 +54,7 @@ const Recipes = () => {
             autoPlaySpeed={3000}
             keyBoardControl={true}
             showDots={true}
+            removeArrowOnDeviceType={["mobile","tablet"]}
             customLeftArrow={<CustomLeftArrow />}
             customRightArrow={<CustomRightArrow />}
             customDot={<CustomDot />}
@@ -69,14 +70,14 @@ const Recipes = () => {
             <RecipeCard image={images.pescado} title="Pescado Horneado" description="Fresco y ligero." time="30 min" />
           </Carousel>
         </div>
-        <div className="w-fit mx-auto my-10">
+        <div className="w-fit mx-auto my-10 relative z-10">
           <AnimatedButton
             styleKind="style3"
             className="cursor-pointer">Ver Recetas</AnimatedButton>
         </div>
 
-        <OnionThreeIcon color="#78030A" width={400} height={400} className="rotate-12 absolute z-[0] top-[2em] right-[-5%]" />
-        <GarlicTwoIcon color="#78030A" width={400} height={400} className="rotate-[-12deg] absolute z-[0] bottom-0 left-[-5%]" />
+        <OnionThreeIcon color="#78030A" width={400} height={400} className="rotate-12 absolute z-[0] top-[2em] right-[25%]" />
+        <GarlicTwoIcon color="#78030A" width={400} height={400} className="rotate-[-12deg] absolute z-[0] bottom-[-7%] left-[25%]" />
         <img width={250} height={250} src={images.cuchara} alt="cuchara" className="rotate-[-90deg] absolute z-[0] -top-[2.5em] left-20" />
         <BrandSpin width={70} height={70} className="absolute z-[0] bottom-10 left-10 opacity-80" />
     </div>
