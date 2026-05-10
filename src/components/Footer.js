@@ -87,7 +87,7 @@ const rainItems = [
 
 const Footer = () => {
   return (
-    <footer className="h-screen bg-hero-gradient w-full py-5 relative overflow-hidden font-ubuntu">
+    <footer className="h-screen bg-hero-gradient w-full md:py-5 pb-5 py-16 relative overflow-hidden font-ubuntu">
       <RainEffect items={rainItems} />
       {/* Absolute Background Icons */}
       <div className="absolute w-full flex flex-row justify-between right-0 opacity-10 -bottom-20 z-0">
@@ -98,7 +98,7 @@ const Footer = () => {
       <div className="mx-auto flex flex-col h-full w-full px-10 md:px-15 relative z-20">
 
         {/* Top Header */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center border-b border-secondary-beige/30 shrink-0">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center md:border-b md:border-secondary-beige/30 shrink-0">
           <SazonovaLettersIcon width="200" height="100" className="w-100 h-100" color="var(--secondary-beige)" />
 
           <div className="flex space-x-4">
@@ -119,7 +119,7 @@ const Footer = () => {
 
         {/* Links Grid */}
         <div className="py-10 text-secondary-beige h-full">
-          <div className="flex gap-[15vw] w-fit mx-auto">
+          <div className="flex flex-col md:flex-row gap-[15vw] w-fit md:mx-auto">
             <div className="flex flex-col">
               <h4 className="text-xl font-medium mb-4">Menú</h4>
               <ul className="space-y-3 font-light text-1xl font-ubuntu">

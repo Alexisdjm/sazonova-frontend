@@ -62,7 +62,7 @@ const Slide = ({
         </>
       )}
 
-      <div className="relative z-10 w-full h-full">
+      <div className="relative z-10 w-full md:h-full h-[75vh]">
         {children}
         {button && (
           <div className={`absolute ${buttonPosition} z-50`}>

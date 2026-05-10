@@ -48,15 +48,15 @@ const Slider = () => {
         removeArrowOnDeviceType={["mobile","tablet"]}
         customLeftArrow={<CustomLeftArrow />}
         customRightArrow={<CustomRightArrow />}
-        containerClass="w-full md:h-full h-[75vh] z-10"
-        itemClass="w-full h-full"
+        containerClass="w-full md:h-full md:h-[75vh] z-10"
+        itemClass="w-full md:h-full h-[75vh]"
       >
         <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16">
-          <div className="w-full h-full flex items-center  flex-col justify-end">
+          <div className="w-full h-[75vh] md:h-full flex items-center gap-6 flex-col justify-end">
             <div className='text-center mb-2 relative z-10'>
-              <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
-              <span className='font-ubuntu text-secondary-beige md:text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
-              <h1 className='font-sugo text-secondary-beige md:text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h1>
+              <h1 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
+              <span className='font-ubuntu text-secondary-beige text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
+              <h1 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h1>
               <h3
                 data-text="a su comida"
                 className='isolate relative z-10 font-calling-heart -mt-10 text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_var(--gradient-dark-red)] before:text-primary-red'
@@ -64,9 +64,9 @@ const Slider = () => {
                 a su comida
               </h3>
             </div>
-            <img className='z-10' src={images.glass} width={450} alt="glass" />
-            <img src={images.cuchara} width={250} alt="cuchara" className="z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
-            <Vector2Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
+            <img className='z-10 w-[400px] md:w-[450px]' src={images.glass} width={450} alt="glass" />
+            <img src={images.cuchara} width={250} alt="cuchara" className="hidden md:block z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
+            <Vector2Icon className="md:w-full md:h-full absolute z-0 top-1/4 right-0" />
           </div>
         </Slide>
         <Slide button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16" buttonStyle='style2' background="orange-lines">
