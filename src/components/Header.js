@@ -77,7 +77,7 @@ const Header = () => {
         </div>
       </div>
 
-    <header className={`z-50 w-[100vw] px-14 py-4 transition-all duration-300 ${
+    <header className={`z-50 w-[100vw] px-6 lg:px-14 py-4 transition-all duration-300 ${
       isScrolled ? "fixed top-0 shadow-md text-primary-red" : "absolute top-0 bg-transparent text-secondary-beige"
     }`}>
         <nav>
