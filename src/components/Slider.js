@@ -48,11 +48,11 @@ const Slider = () => {
         removeArrowOnDeviceType={["mobile","tablet"]}
         customLeftArrow={<CustomLeftArrow />}
         customRightArrow={<CustomRightArrow />}
-        containerClass="w-full md:h-full md:h-[75vh] z-10"
-        itemClass="w-full md:h-full h-[75vh]"
+        containerClass="w-full md:h-full h-screen z-10"
+        itemClass="w-full md:h-full h-screen"
       >
         <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16">
-          <div className="w-full h-[75vh] md:h-full flex items-center gap-6 flex-col justify-end">
+          <div className="w-full h-screen md:h-full flex items-center gap-6 flex-col justify-end">
             <div className='text-center mb-2 relative z-10'>
               <h1 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
               <span className='font-ubuntu text-secondary-beige text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>

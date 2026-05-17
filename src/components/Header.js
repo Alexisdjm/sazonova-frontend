@@ -84,7 +84,7 @@ const Header = () => {
             <ul className="flex flex-row justify-between items-center">
                 <li><button onClick={() => setIsSidebarOpen(true)}><img src={isScrolled ? images.menuRed : images.menu} alt="Menu" className="h-[20px] w-auto" /></button></li>
                 <li><Link to="/">{isScrolled ? <img src={images.sazonovaLogoRed} alt="Logo" className="h-12 w-auto" /> : <img src={images.sazonovaLogoBeige} alt="Logo" className="h-12 w-auto" />}</Link></li>
-                <li><Link to="/contact" className={`${isScrolled ? "text-primary-red" : "text-secondary-beige"} font-ubuntu`}>Contact</Link></li>
+                <li className="hidden md:block"><Link to="/contact" className={`${isScrolled ? "text-primary-red" : "text-secondary-beige"} font-ubuntu`}>Contact</Link></li>
             </ul>
         </nav>
     </header>
