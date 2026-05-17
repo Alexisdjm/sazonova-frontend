@@ -52,7 +52,7 @@ const Slider = () => {
         itemClass="w-full md:h-full h-screen"
       >
         <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16">
-          <div className="w-full h-screen md:h-full flex items-center gap-6 flex-col justify-end">
+          <div className="w-full h-screen md:h-full flex items-center gap-6 flex-col justify-end max-h-[800px]">
             <div className='text-center mb-2 relative z-10'>
               <h1 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
               <span className='font-ubuntu text-secondary-beige text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
@@ -64,9 +64,9 @@ const Slider = () => {
                 a su comida
               </h3>
             </div>
-            <img className='z-10 w-[400px] md:w-[450px]' src={images.glass} width={450} alt="glass" />
+            <img className='z-10 w-[90vw] md:w-[450px] lg:w-[55vh] aspect-4/3 lg:max-w-[550px]' src={images.glass} width={450} alt="glass" />
             <img src={images.cuchara} width={250} alt="cuchara" className="hidden md:block z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
-            <Vector2Icon className="md:w-full md:h-full absolute z-0 top-1/4 right-0" />
+            <Vector2Icon className="absolute z-0 top-1/4 lg:w-[100%] right-0 md:top-0" />
           </div>
         </Slide>
         <Slide button={true} buttonUrl="/" buttonText="Ver más" buttonPosition="bottom-12 right-16" buttonStyle='style2' background="orange-lines">
@@ -80,10 +80,10 @@ const Slider = () => {
                 <img src={images.badge2} width={100} alt="badge inferior" className="absolute bottom-0 right-[-40px] z-20" />
               </div>
             </div>
-            <img className='z-10' src={images.standings} width={550} alt="glass" />
+            <img className='z-10 aspect-4/3 lg:w-[60vh] lg:max-w-[650px]' src={images.standings} width={550} alt="glass" />
             </div>
             <img src={images.hand} width={150} alt="cuchara" className="z-10 absolute bottom-0 left-[48%] animate-up-down" />
-            <Vector3Icon className="w-full h-full absolute z-0 top-1/4 right-0" />
+            <Vector3Icon className="lg:w-full lg:h-full absolute z-0 top-1/4 right-0" />
           </div>
         </Slide>
       </Carousel>

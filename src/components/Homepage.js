@@ -10,7 +10,7 @@ const Homepage = () => {
       <VideoComponent videoSrc={images.video1}/>
       <Slider />
       <MapLocations />
-      {/* <Compare /> */}
+      <Compare />
       <Form />
       <Footer />
     </>

@@ -87,7 +87,7 @@ const rainItems = [
 
 const Footer = () => {
   return (
-    <footer className="h-screen bg-hero-gradient w-full md:py-5 pb-5 py-16 relative overflow-hidden font-ubuntu">
+    <footer className="h-auto lg:h-screen md:h-[60vh] bg-hero-gradient w-full md:py-5 pb-5 py-16 relative overflow-hidden font-ubuntu">
       <RainEffect items={rainItems} />
       {/* Absolute Background Icons */}
       <div className="absolute w-full flex flex-row justify-between right-0 opacity-10 -bottom-20 z-0">

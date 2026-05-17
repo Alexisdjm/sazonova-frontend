@@ -24,7 +24,7 @@ const Slide = ({
   };
 
   return (
-    <div className={`relative w-full h-screen overflow-hidden ${background === 'red-logo' ? 'bg-primary-red' : 'bg-brand-orange'}`}>
+    <div className={`relative w-full h-screen overflow-hidden max-h-[800px] ${background === 'red-logo' ? 'bg-primary-red' : 'bg-brand-orange'}`}>
       {background === 'red-logo' && (
         <div className="absolute inset-0 z-0 pointer-events-none flex flex-col gap-y-3 py-3 -ml-16">
           {[...Array(35)].map((_, i) => (
@@ -62,7 +62,7 @@ const Slide = ({
         </>
       )}
 
-      <div className="relative z-10 w-full md:h-full h-screen">
+      <div className="relative z-10 w-full md:h-full h-screen max-h-[800px]">
         {children}
         {button && (
           <div className={`absolute ${buttonPosition} z-50`}>

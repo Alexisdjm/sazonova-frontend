@@ -6,7 +6,7 @@ const Compare = () => {
   const [hoveredRight, setHoveredRight] = useState(false);
 
   return (
-    <section className="relative w-full h-[100vh]">
+    <section className="relative w-full h-screen max-h-[650px] md:max-h-[100vh]">
       {/*
         El SVG mágico: Todo lo que esté adentro (fondo, polígonos, imágenes) pertenece al mismo mundo (1000x1000).
         El preserveAspectRatio="xMidYMid slice" se asegura de estirar/cortar el "lienzo" para abarcar todo el espacio
@@ -54,13 +54,13 @@ const Compare = () => {
         /> */}
       </svg>
       <div className='flex flex-col relative justify-between h-full z-20'>
-        <div className='px-10 pt-10 flex w-full h-full'>
+        <div className='px-10 pt-10 w-full h-full hidden md:flex'>
           <div
             className='w-1/2 h-full flex items-center'
             onMouseEnter={() => setHoveredLeft(true)}
             onMouseLeave={() => setHoveredLeft(false)}
           >
-            <div className='w-3/5 mx-auto rotate-[7deg] hidden md:block'>
+            <div className='w-3/5 mx-auto rotate-[7deg]'>
               <h1 className='font-pangolin text-secondary-beige text-8xl font-medium'>Ajo En Polvo</h1>
               <p className='font-pangolin text-secondary-beige text-3xl font-medium w-3/5 pt-20'>El alma de la receta. Una explosión de especias para quienes no temen a la intensidad.</p>
             </div>
@@ -77,8 +77,8 @@ const Compare = () => {
           </div>
         </div>
         <div className="bottom-0 flex flex-col items-center justify-center w-full mb-12 z-10 ">
-          <h4 className="font-sugo text-secondary-beige text-2xl font-bold">¿Con cuál</h4>
-          <h1 className="font-sugo uppercase text-secondary-beige text-8xl font-medium">Sabe mejor?</h1>
+          <h4 className="font-sugo text-secondary-beige text-4xl md:text-5xl font-semibold">¿Con cuál</h4>
+          <h1 className="font-sugo uppercase text-secondary-beige text-6xl md:text-8xl font-medium text-center">Sabe mejor?</h1>
         </div>
       </div>
       <div className="absolute -top-10 -left-10 hidden md:flex flex-col justify-between h-[110vh] z-10">
