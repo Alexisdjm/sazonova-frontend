@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import images from '../assets/exporting';
 
 const Compare = () => {
   const [hoveredLeft, setHoveredLeft] = useState(false);
   const [hoveredRight, setHoveredRight] = useState(false);
+  const [rotateToggle, setRotateToggle] = useState(false);
+
+  useEffect(() => {
+    // Alternar entre 45 y -45 grados cada 500ms
+    const interval = setInterval(() => {
+      setRotateToggle(prev => !prev);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative w-full h-screen max-h-[650px] md:max-h-[100vh]">
+    <section className="relative w-full h-screen max-h-[650px] lg:max-h-[100vh]">
       {/*
         El SVG mágico: Todo lo que esté adentro (fondo, polígonos, imágenes) pertenece al mismo mundo (1000x1000).
         El preserveAspectRatio="xMidYMid slice" se asegura de estirar/cortar el "lienzo" para abarcar todo el espacio
@@ -30,31 +39,51 @@ const Compare = () => {
         {/* Fondo naranja cortado en forma de rayo.
             Usamos tus últimos porcentajes pero adaptándolos a escala de 1000 puntos.
             ej: 59.5% -> 595, 43.7% -> 437. Así es más fácil visualizarlo. */}
+        {/* Fondo naranja cortado en forma de rayo. Mobile (ajustado 2x para coincidir con la imagen) */}
+        <polygon
+          points="717,0   1000,0   1000,1000   350,1000   570,520   440,490"
+          fill={hoveredRight ? "#EE8B00" : "var(--adobo-orange-bg)"}
+          style={{ transition: "fill 0.3s ease" }}
+          className="lg:hidden"
+        />
+        {/* Fondo naranja cortado en forma de rayo. Desktop */}
         <polygon
           points="750,0   1000,0   1000,1000   310,1000   535,510   470,495"
           fill={hoveredRight ? "#EE8B00" : "var(--adobo-orange-bg)"}
           style={{ transition: "fill 0.3s ease" }}
+          className="hidden lg:block"
         />
 
         {/* Imagen centrada internamente en el "mundo" SVG.
             Un cuadro de 500x500 posicionado en X:250 Y:250 está perfectamente al medio de un lienzo 1000x1000. */}
         <image
           href={images.plate}
+          x="250"
+          y="250"
+          width="500"
+          height="500"
+          className="lg:hidden"
+        />
+        <image
+          href={images.plate}
           x="375"
           y="375"
           width="250"
           height="250"
+          className="hidden lg:block"
         />
-        {/* <image
+        {/* Imagen del logo (Solo en mobile). Posicionada exactamente al centro, rota repentinamente */}
+        <image
           href={images.sazonovaMobile}
-          x="440"
-          y="440"
-          width="125"
-          height="125"
-        /> */}
+          x="375"
+          y="375"
+          width="250"
+          height="250"
+          className={`lg:hidden origin-center ${rotateToggle ? 'rotate-45' : '-rotate-45'}`}
+        />
       </svg>
-      <div className='flex flex-col relative justify-between h-full z-20'>
-        <div className='px-10 pt-10 w-full h-full hidden md:flex'>
+      <div className='absolute lg:relative inset-0 flex flex-col justify-end lg:justify-between z-20'>
+        <div className='px-10 pt-10 w-full h-full hidden lg:flex'>
           <div
             className='w-1/2 h-full flex items-center'
             onMouseEnter={() => setHoveredLeft(true)}
@@ -70,22 +99,22 @@ const Compare = () => {
             onMouseEnter={() => setHoveredRight(true)}
             onMouseLeave={() => setHoveredRight(false)}
           >
-            <div className='w-3/5 mx-auto flex-col items-end rotate-[-7deg] hidden md:flex'>
+            <div className='w-3/5 mx-auto flex-col items-end rotate-[-7deg] hidden lg:flex'>
               <p className='font-pangolin text-secondary-beige text-3xl font-medium w-3/5 text-right'>Tu solución todo en uno. Dale a tus platos un carácter vibrante y un color inconfundible.</p>
               <h1 className='font-pangolin text-secondary-beige text-8xl font-medium text-right pt-20'>Adobo</h1>
             </div>
           </div>
         </div>
         <div className="bottom-0 flex flex-col items-center justify-center w-full mb-12 z-10 ">
-          <h4 className="font-sugo text-secondary-beige text-4xl md:text-5xl font-semibold">¿Con cuál</h4>
-          <h1 className="font-sugo uppercase text-secondary-beige text-6xl md:text-8xl font-medium text-center">Sabe mejor?</h1>
+          <h4 className="font-sugo text-secondary-beige text-4xl lg:text-5xl font-semibold">¿Con cuál</h4>
+          <h1 className="font-sugo uppercase text-secondary-beige text-6xl lg:text-8xl font-medium text-center">Sabe mejor?</h1>
         </div>
       </div>
-      <div className="absolute -top-10 -left-10 hidden md:flex flex-col justify-between h-[110vh] z-10">
+      <div className="absolute -top-10 -left-10 hidden lg:flex flex-col justify-between h-[110vh] z-10">
         <img className='rotate-[20deg]' width={200}  src={images.ajo} alt="" />
         <img className='rotate-[20deg]' width={300} src={images.image38} alt="" />
       </div>
-      <div className="md:flex hidden absolute top-0 -right-28 flex-col justify-between h-[105vh] z-10">
+      <div className="lg:flex hidden absolute top-0 -right-28 flex-col justify-between h-[105vh] z-10">
         <img className='rotate-90' height={300} width={300} src={images.image39} alt="" />
         <img className='rotate-[15deg]' width={200}  src={images.adobo} alt="" />
       </div>
