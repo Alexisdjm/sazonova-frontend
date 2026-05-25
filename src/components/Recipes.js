@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { RecipeCard } from "./index";
@@ -27,6 +28,25 @@ const responsive = {
 };
 
 const Recipes = () => {
+  const [recipes, setRecipes] = useState([]);
+  const url = "http://127.0.0.1:8000";
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch(`${url}/api/recipes/all/`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        const recipesData = Array.isArray(data) ? data : data.results || [];
+        setRecipes(recipesData);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
+
   return (
     <>
     <div className="relative w-full bg-[#650208] bg-fixed overflow-hidden">
@@ -66,12 +86,18 @@ const Recipes = () => {
             itemClass="px-2 flex justify-center"
             containerClass="carousel-container !pb-14"
           >
-            <RecipeCard image={images.carne1} title="Costillas de Cerdo" description="6 ingredientes - 50min" time="15 min" />
-            <RecipeCard image={images.carne2} title="Pollo al Adobo" description="Sabor tradicional." time="40 min" />
-            <RecipeCard image={images.carne3} title="Sopa de Especias" description="Un abrazo al alma." time="25 min" />
-            <RecipeCard image={images.carne4} title="Carne Marinada" description="Textura jugosa." time="60 min" />
-            <RecipeCard image={images.empanadas} title="Papas con Ajo" description="Acompañante ideal." time="20 min" />
-            <RecipeCard image={images.pescado} title="Pescado Horneado" description="Fresco y ligero." time="30 min" />
+            {recipes.length > 0 ? (
+              recipes.map((recipe, index) => (
+                <RecipeCard
+                  key={recipe.id ?? index}
+                  image={recipe.recipe_image}
+                  title={recipe.name}
+                  time={recipe.preparation_time}
+                />
+              ))
+            ) : (
+              <RecipeCard image={images.carne1} title="Costillas de Cerdo" description="6 ingredientes - 50min" time="15 min" />
+            )}
           </Carousel>
         </div>
         <div className="w-fit mx-auto my-10 relative z-10">
