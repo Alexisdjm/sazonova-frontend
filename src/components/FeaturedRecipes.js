@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
+import { useRecipes } from "../context/RecipesContext";
 import "react-multi-carousel/lib/styles.css";
 import { RecipeCard } from "./index";
 import { CustomLeftArrow, CustomRightArrow, CustomDot } from "./CarouselControls";
@@ -24,28 +24,7 @@ const responsive = {
 };
 
 const FeaturedRecipes = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const url = "http://127.0.0.1:8000";
-
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const res = await fetch(`${url}/api/recipes/all/`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const list = Array.isArray(data) ? data : data.results || [];
-        setRecipes(list);
-      } catch (err) {
-        console.error("Error fetching featured recipes:", err);
-        setRecipes([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchRecipes();
-  }, []);
-
+  const { recipes, isLoading } = useRecipes();
   const items = recipes.slice(0, 6);
 
   return (

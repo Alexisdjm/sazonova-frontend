@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useRecipes } from "../context/RecipesContext";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { RecipeCard } from "./index";
@@ -29,24 +29,7 @@ const responsive = {
 };
 
 const Recipes = () => {
-  const [recipes, setRecipes] = useState([]);
-  const url = "http://127.0.0.1:8000";
-
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await fetch(`${url}/api/recipes/all/`);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        const recipesData = Array.isArray(data) ? data : data.results || [];
-        setRecipes(recipesData);
-      } catch (error) {
-        console.error("Error fetching recipes:", error);
-      }
-    };
-
-    fetchRecipes();
-  }, []);
+  const { recipes } = useRecipes();
 
   return (
     <>

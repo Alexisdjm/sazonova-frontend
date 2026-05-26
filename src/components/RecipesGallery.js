@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RecipeCard } from "./index";
+import { useRecipes } from "../context/RecipesContext";
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 1366 }, items: 4 },
@@ -18,32 +19,12 @@ const getColumnsFromWidth = (width) => {
 
 const RecipesGallery = () => {
   const [columns, setColumns] = useState(() => (typeof window !== 'undefined' ? getColumnsFromWidth(window.innerWidth) : 1));
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const url = "http://127.0.0.1:8000";
+  const { recipes, isLoading } = useRecipes();
 
   useEffect(() => {
     const handleResize = () => setColumns(getColumnsFromWidth(window.innerWidth));
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await fetch(`${url}/api/recipes/all/`);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        const list = Array.isArray(data) ? data : data.results || [];
-        setRecipes(list);
-      } catch (error) {
-        console.error('Error fetching gallery recipes:', error);
-        setRecipes([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchRecipes();
   }, []);
 
   return (
