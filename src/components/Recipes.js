@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { RecipeCard } from "./index";
@@ -101,9 +102,9 @@ const Recipes = () => {
           </Carousel>
         </div>
         <div className="w-fit mx-auto my-10 relative z-10">
-          <AnimatedButton
-            styleKind="style3"
-            className="cursor-pointer">Ver Recetas</AnimatedButton>
+          <Link to="/recipes" className="inline-block">
+            <AnimatedButton styleKind="style3" className="cursor-pointer">Ver Recetas</AnimatedButton>
+          </Link>
         </div>
 
         <OnionThreeIcon color="#78030A" width={400} height={400} className="rotate-12 absolute z-[0] top-[2em] right-[25%]" />
