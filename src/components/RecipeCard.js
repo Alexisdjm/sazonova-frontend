@@ -5,7 +5,7 @@ const RecipeCard = ({ image, title, description, time }) => {
         <img
           width={200}
           height={200}
-          className="object-cover relative top-[0.75em]"
+          className="object-cover relative top-[-0.20em]"
           src={image}
           alt={title}
         />

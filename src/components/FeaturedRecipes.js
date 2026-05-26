@@ -67,7 +67,7 @@ const FeaturedRecipes = () => {
             removeArrowOnDeviceType={["mobile", "tablet"]}
             customLeftArrow={<CustomLeftArrow />}
             customRightArrow={<CustomRightArrow />}
-            customDot={<CustomDot />}
+            customDot={<CustomDot colorClass="bg-primary-red" />}
             dotListClass="!bottom-0"
             itemClass="px-2 flex justify-center"
             containerClass="carousel-container !pb-14"

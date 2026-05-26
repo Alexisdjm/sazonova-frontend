@@ -22,13 +22,22 @@ export const CustomRightArrow = ({ onClick }) => {
   );
 };
 
-export const CustomDot = ({ onClick, active }) => {
+/** @param {string} colorClass Clase Tailwind de fondo, ej. bg-secondary-beige, bg-primary-red, bg-brand-orange */
+export const CustomDot = ({
+  onClick,
+  active,
+  colorClass = "bg-secondary-beige",
+}) => {
   return (
     <li className="mx-1">
       <button
+        type="button"
         style={{ cursor: "pointer" }}
-        className={`block h-3 rounded-full transition-all duration-300 ${active ? "bg-[#FFEDCE] w-8 shadow-md" : "bg-[#FFEDCE] w-3 opacity-50 hover:opacity-100"}`}
+        className={`block h-3 rounded-full transition-all duration-300 ${colorClass} ${
+          active ? "w-8 shadow-md" : "w-3 opacity-50 hover:opacity-100"
+        }`}
         onClick={() => onClick()}
+        aria-label="Ir a diapositiva"
       />
     </li>
   );
