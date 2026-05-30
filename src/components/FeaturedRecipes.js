@@ -28,13 +28,24 @@ const FeaturedRecipes = () => {
   const items = recipes.slice(0, 6);
 
   return (
-    <section className="py-12">
+    <div className="py-12">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-sugo text-center mb-8">Recetas Destacadas</h2>
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="font-sugo text-5xl font-medium text-brand-orange">
+            RECETAS
+          </h2>
+          <h2 className="font-calling-heart text-5xl font-medium text-primary-red">
+            Elecciones
+          </h2>
+        </div>
         {isLoading ? (
-          <p className="text-center py-8 font-ubuntu">Cargando recetas destacadas...</p>
+          <p className="text-center py-8 font-ubuntu">
+            Cargando recetas destacadas...
+          </p>
         ) : items.length === 0 ? (
-          <h1 className="text-center py-8 font-sugo text-2xl">No hay resultados</h1>
+          <h1 className="text-center py-8 font-sugo text-2xl">
+            No hay resultados
+          </h1>
         ) : (
           <Carousel
             responsive={responsive}
@@ -54,6 +65,7 @@ const FeaturedRecipes = () => {
             {items.map((recipe) => (
               <RecipeCard
                 key={recipe.id}
+                slug={recipe.slug}
                 image={recipe.recipe_image}
                 title={recipe.name}
                 time={recipe.preparation_time}
@@ -62,7 +74,7 @@ const FeaturedRecipes = () => {
           </Carousel>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

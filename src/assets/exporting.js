@@ -40,6 +40,7 @@ const images = {
   compareBg: require("./images/bg-fusion.webp"),
   sazonovaMobile: require("./images/sazonova-mobile.webp"),
   formBadge: require("./images/form-badge.webp"),
+  powder: require("./images/powder.png"),
 };
 
 export default images;
