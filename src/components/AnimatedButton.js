@@ -1,29 +1,29 @@
-const AnimatedButton = ({ children, onClick, styleKind = 'style1' }) => {
-  let textColors = '';
-  let bgColor = '';
-  let beforeColor = '';
-  let afterColor = '';
+const AnimatedButton = ({ children, onClick, styleKind = "style1" }) => {
+  let textColors = "";
+  let bgColor = "";
+  let beforeColor = "";
+  let afterColor = "";
 
-  if (styleKind === 'style1') {
-    textColors = 'text-primary-red group-hover:text-secondary-beige';
-    bgColor = 'bg-secondary-beige';
-    beforeColor = 'before:bg-primary-red';
-    afterColor = 'after:bg-primary-red';
-  } else if (styleKind === 'style2') {
-    textColors = 'text-[#650208] group-hover:text-secondary-beige';
-    bgColor = 'bg-secondary-beige';
-    beforeColor = 'before:bg-primary-red';
-    afterColor = 'after:bg-primary-red';
-  } else if (styleKind === 'style3') {
-    textColors = 'text-primary-red group-hover:text-secondary-beige';
-    bgColor = 'bg-secondary-beige';
-    beforeColor = 'before:bg-[#650208]';
-    afterColor = 'after:bg-[#650208]';
+  if (styleKind === "style1") {
+    textColors = "text-primary-red group-hover:text-secondary-beige";
+    bgColor = "bg-secondary-beige";
+    beforeColor = "before:bg-primary-red";
+    afterColor = "after:bg-primary-red";
+  } else if (styleKind === "style2") {
+    textColors = "text-[#650208] group-hover:text-secondary-beige";
+    bgColor = "bg-secondary-beige";
+    beforeColor = "before:bg-primary-red";
+    afterColor = "after:bg-primary-red";
+  } else if (styleKind === "style3") {
+    textColors = "text-primary-red group-hover:text-secondary-beige";
+    bgColor = "bg-secondary-beige";
+    beforeColor = "before:bg-[#650208]";
+    afterColor = "after:bg-[#650208]";
   } else {
-    textColors = 'text-primary-red group-hover:text-secondary-beige';
-    bgColor = 'bg-secondary-beige';
-    beforeColor = 'before:bg-primary-red';
-    afterColor = 'after:bg-primary-red';
+    textColors = "text-primary-red group-hover:text-secondary-beige";
+    bgColor = "bg-secondary-beige";
+    beforeColor = "before:bg-primary-red";
+    afterColor = "after:bg-primary-red";
   }
   return (
     <button
@@ -50,7 +50,9 @@ const AnimatedButton = ({ children, onClick, styleKind = 'style1' }) => {
         hover:before:scale-100 hover:after:scale-100
       `}
     >
-      <span className={`relative z-10 font-semibold ${textColors} transition-colors duration-[700ms] ease-[cubic-bezier(0.83,0,0.17,1)]`}>
+      <span
+        className={`relative z-10 font-semibold ${textColors} transition-colors duration-[700ms] ease-[cubic-bezier(0.83,0,0.17,1)]`}
+      >
         {children}
       </span>
     </button>

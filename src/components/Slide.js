@@ -1,22 +1,22 @@
-import images from '../assets/exporting';
-import AnimatedButton from './AnimatedButton';
-import { useNavigate } from 'react-router-dom';
+import images from "../assets/exporting";
+import AnimatedButton from "./AnimatedButton";
+import { useNavigate } from "react-router-dom";
 
 const Slide = ({
   children,
-  background = 'red-logo',
+  background = "red-logo",
   image = images.sazonovaLogoRed,
   button = false,
-  buttonUrl = '/',
-  buttonStyle = 'style1',
-  buttonText = 'Ver más',
-  buttonPosition = 'bottom-1 left-1/2 -translate-x-1/2',
+  buttonUrl = "/",
+  buttonStyle = "style1",
+  buttonText = "Ver más",
+  buttonPosition = "bottom-1 left-1/2 -translate-x-1/2",
 }) => {
   const navigate = useNavigate();
 
   const handleAction = () => {
     if (!buttonUrl) return;
-    if (buttonUrl.startsWith('http://') || buttonUrl.startsWith('https://')) {
+    if (buttonUrl.startsWith("http://") || buttonUrl.startsWith("https://")) {
       window.location.href = buttonUrl;
     } else {
       navigate(buttonUrl);
@@ -24,20 +24,30 @@ const Slide = ({
   };
 
   return (
-    <div className={`relative w-full h-screen overflow-hidden max-h-[800px] ${background === 'red-logo' ? 'bg-primary-red' : 'bg-brand-orange'}`}>
-      {background === 'red-logo' && (
+    <div
+      className={`relative w-full h-screen overflow-hidden max-h-[800px] ${background === "red-logo" ? "bg-primary-red" : "bg-brand-orange"}`}
+    >
+      {background === "red-logo" && (
         <div className="absolute inset-0 z-0 pointer-events-none flex flex-col gap-y-3 py-3 -ml-16">
           {[...Array(35)].map((_, i) => (
-            <div key={i} className={`flex gap-x-3 min-w-max ${i % 2 !== 0 ? '-translate-x-[62px]' : ''}`}>
+            <div
+              key={i}
+              className={`flex gap-x-3 min-w-max ${i % 2 !== 0 ? "-translate-x-[62px]" : ""}`}
+            >
               {[...Array(40)].map((_, j) => (
-                <img key={j} src={image} className="w-[100px] h-auto object-contain" alt="" />
+                <img
+                  key={j}
+                  src={image}
+                  className="w-[100px] h-auto object-contain"
+                  alt=""
+                />
               ))}
             </div>
           ))}
         </div>
       )}
 
-      {background === 'orange-lines' && (
+      {background === "orange-lines" && (
         <>
           <style>
             {`

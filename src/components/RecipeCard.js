@@ -14,14 +14,14 @@ const RecipeCard = ({ image, title, description, time, slug }) => {
       {time && (
         <p className="font-ubuntu opacity-50 text-sm mt-1">{`${time}`}</p>
       )}
-      <span className="relative font-pangolin bg-secondary-red bg-black text-white px-10 py-2 mt-2 rounded-lg hover:-translate-y-1">
+      <span className="relative mt-2 inline-block font-pangolin bg-black text-white px-10 py-2 rounded-lg transition-colors duration-300 ease-in-out hover:bg-neutral-800">
         Ver
       </span>
     </div>
   );
 
   const wrapperClass =
-    "relative z-10 h-[305px] md:w-[225px] w-[250px] flex flex-col justify-end no-underline text-inherit";
+    "relative z-10 h-[305px] md:w-[225px] w-[250px] flex flex-col justify-end no-underline text-inherit hover:-translate-y-1";
 
   if (slug) {
     return (

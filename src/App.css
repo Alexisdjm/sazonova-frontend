@@ -3,19 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: #F0E5D5;
+  --bg-color: #f0e5d5;
   --dark-red: #650208;
-  --gradient-light-red: #E30613;
-  --gradient-dark-red: #7D030A;
-  --adobo-orange-bg: #E47E1A;
-  --secondary-beige: #FFEDCE;
+  --gradient-light-red: #e30613;
+  --gradient-dark-red: #7d030a;
+  --adobo-orange-bg: #e47e1a;
+  --secondary-beige: #ffedce;
 }
 
-body{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   background-color: var(--bg-color);
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 header {
-  background-color: var(--bg-color)
+  background-color: var(--bg-color);
 }
