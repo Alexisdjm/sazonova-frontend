@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
-const API_BASE_URL = "http://127.0.0.1:8000";
+import { API_URL } from "../config/env";
 
 const RecipesContext = createContext(null);
 
@@ -14,7 +13,7 @@ export const RecipesProvider = ({ children }) => {
 
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/recipes/all/`);
+        const response = await fetch(`${API_URL}/api/recipes/all/`);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         const list = Array.isArray(data) ? data : data.results || [];

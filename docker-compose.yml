@@ -1,0 +1,14 @@
+services:
+  sazonova-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL:-http://127.0.0.1:8000}
+        REACT_APP_MAPBOX_ACCESS_TOKEN: ${REACT_APP_MAPBOX_ACCESS_TOKEN:-}
+        REACT_APP_MAPBOX_STYLE: ${REACT_APP_MAPBOX_STYLE:-mapbox://styles/mapbox/streets-v12}
+        REACT_APP_SITE_URL: ${REACT_APP_SITE_URL:-}
+        GENERATE_SOURCEMAP: ${GENERATE_SOURCEMAP:-false}
+    ports:
+      - "${WEB_PORT:-80}:80"
+    restart: unless-stopped

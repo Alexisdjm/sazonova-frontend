@@ -1,28 +1,77 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { SazonovaIcon } from "./icons";
+import { useRecipes } from "../context/RecipesContext";
 
-const VISIBLE_MS = 420;
+const ROUTE_OVERLAY_MS = 500;
+const MAX_INITIAL_WAIT_MS = 12000;
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const waitForPageReady = () =>
+  new Promise((resolve) => {
+    if (document.readyState === "complete") {
+      resolve();
+      return;
+    }
+    window.addEventListener("load", resolve, { once: true });
+  });
+
+const waitForPaint = () =>
+  new Promise((resolve) => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  });
 
 /**
- * Cubre la pantalla al cambiar de ruta para que no se note el “swap”
- * del contenido dentro del HeroBanner (y otras secciones compartidas).
+ * Overlay al recargar y al cambiar de ruta.
+ * En carga inicial: desaparece cuando la página y los datos están listos.
  */
 const PageTransition = ({ children }) => {
   const { pathname } = useLocation();
-  const isFirstLoad = useRef(true);
-  const [visible, setVisible] = useState(false);
+  const { isLoading } = useRecipes();
+  const hasFinishedInitial = useRef(false);
+  const isFirstPathname = useRef(true);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (hasFinishedInitial.current || isLoading) return;
+
+    let cancelled = false;
+
+    const finishInitialLoad = async () => {
+      await Promise.race([
+        (async () => {
+          await waitForPageReady();
+          await waitForPaint();
+        })(),
+        delay(MAX_INITIAL_WAIT_MS),
+      ]);
+
+      if (!cancelled) {
+        setVisible(false);
+        hasFinishedInitial.current = true;
+      }
+    };
+
+    finishInitialLoad();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isLoading]);
 
   useLayoutEffect(() => {
-    if (isFirstLoad.current) {
-      isFirstLoad.current = false;
+    if (!hasFinishedInitial.current) return;
+
+    if (isFirstPathname.current) {
+      isFirstPathname.current = false;
       return;
     }
 
     setVisible(true);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
-    const timer = setTimeout(() => setVisible(false), VISIBLE_MS);
+    const timer = setTimeout(() => setVisible(false), ROUTE_OVERLAY_MS);
     return () => clearTimeout(timer);
   }, [pathname]);
 

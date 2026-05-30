@@ -123,33 +123,50 @@ const Compare = () => {
           className={`hidden lg:block xl:hidden origin-center ${rotateToggle ? 'rotate-45' : '-rotate-45'}`}
         />
       </svg>
-      <div className='absolute xl:relative inset-0 flex flex-col justify-end xl:justify-between z-20'>
-        <div className='px-10 pt-10 w-full h-full hidden xl:flex'>
-          <div
-            className='w-1/2 h-full flex items-center'
-            onMouseEnter={() => setHoveredLeft(true)}
-            onMouseLeave={() => setHoveredLeft(false)}
-          >
-            <div className='w-3/5 mx-auto rotate-[7deg]'>
-              <h1 className='font-pangolin text-secondary-beige text-8xl font-medium'>Ajo En Polvo</h1>
-              <p className='font-pangolin text-secondary-beige text-3xl font-medium w-3/5 pt-20'>El alma de la receta. Una explosión de especias para quienes no temen a la intensidad.</p>
-            </div>
-          </div>
-          <div
-            className='w-1/2 h-full flex items-end'
-            onMouseEnter={() => setHoveredRight(true)}
-            onMouseLeave={() => setHoveredRight(false)}
-          >
-            <div className='w-3/5 mx-auto flex-col items-end rotate-[-7deg] hidden xl:flex'>
-              <p className='font-pangolin text-secondary-beige text-3xl font-medium w-3/5 text-right'>Tu solución todo en uno. Dale a tus platos un carácter vibrante y un color inconfundible.</p>
-              <h1 className='font-pangolin text-secondary-beige text-8xl font-medium text-right pt-20'>Adobo</h1>
+      {/* Desktop: mitades a pantalla completa, independientes del título */}
+      <div className="absolute inset-0 z-20 hidden xl:flex">
+        <div
+          className="w-1/2 h-full px-10"
+          onMouseEnter={() => setHoveredLeft(true)}
+          onMouseLeave={() => setHoveredLeft(false)}
+        >
+          <div className="h-full flex items-center">
+            <div className="w-3/5 mx-auto rotate-[7deg]">
+              <h1 className="font-pangolin text-secondary-beige text-8xl font-medium leading-tight">
+                Ajo En Polvo
+              </h1>
+              <p className="font-pangolin text-secondary-beige text-3xl font-medium w-3/5 pt-20 leading-snug">
+                El alma de la receta. Una explosión de especias para quienes no temen a la intensidad.
+              </p>
             </div>
           </div>
         </div>
-        <div className="bottom-0 flex flex-col items-center justify-center w-full mb-12 z-10 ">
-          <h4 className="font-sugo text-secondary-beige text-4xl xl:text-5xl font-medium">¿Con cuál</h4>
-          <h1 className="font-sugo uppercase text-secondary-beige text-6xl xl:text-8xl font-medium text-center">Sabe mejor?</h1>
+        <div
+          className="w-1/2 h-full px-10"
+          onMouseEnter={() => setHoveredRight(true)}
+          onMouseLeave={() => setHoveredRight(false)}
+        >
+          <div className="h-full flex items-center justify-end">
+            <div className="w-3/5 mx-auto flex flex-col items-end rotate-[-7deg]">
+              <p className="font-pangolin text-secondary-beige text-3xl font-medium w-3/5 text-right leading-snug">
+                Tu solución todo en uno. Dale a tus platos un carácter vibrante y un color inconfundible.
+              </p>
+              <h1 className="font-pangolin text-secondary-beige text-8xl font-medium text-right pt-20 leading-tight">
+                Adobo
+              </h1>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Título separado (no comparte flex con los textos) */}
+      <div className="absolute inset-x-0 bottom-12 z-30 flex flex-col items-center justify-center pointer-events-none">
+        <h4 className="font-sugo text-secondary-beige text-4xl xl:text-5xl font-medium">
+          ¿Con cuál
+        </h4>
+        <h1 className="font-sugo uppercase text-secondary-beige text-6xl xl:text-8xl font-medium text-center">
+          Sabe mejor?
+        </h1>
       </div>
       <div className="absolute -top-10 -bottom-10 -left-10 hidden xl:flex flex-col justify-between z-10">
         <img className='rotate-[20deg]' width={200}  src={images.ajo} alt="" />

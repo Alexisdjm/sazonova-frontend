@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import images from '../assets/exporting';
+import { MAPBOX_ACCESS_TOKEN, MAPBOX_STYLE } from '../config/env';
 import './MapLocations.css';
 
 // 1. Aquí colocas las ubicaciones.
@@ -84,16 +85,17 @@ const MapLocations = () => {
   const map = useRef(null);
 
   useEffect(() => {
-    // Si ya inicializamos el mapa, salimos
     if (map.current) return;
+    if (!MAPBOX_ACCESS_TOKEN) {
+      console.warn("REACT_APP_MAPBOX_ACCESS_TOKEN no está configurado.");
+      return;
+    }
 
-    // Aquí inyectamos tu token directamente
-    mapboxgl.accessToken = 'pk.eyJ1IjoianVsaW1lbmRvemExNCIsImEiOiJjbW50czd0MGcwcmxvMnNvaGR4eXQyNGZuIn0.5Z7WVKuNTGNxNbbQewcG_w';
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
-    // Inicializamos el mapa puro
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/julimendoza14/cmntsuojg002l01s32vub2sw1', // Reemplaza esto con tu estilo personalizado de calles rojas
+      style: MAPBOX_STYLE,
       center: [-69.2460, 10.0280], // Centro movido a la zona de Cabudare para mostrar ambas sucursales de Kari
       zoom: 13, // Zoom para iniciar viendo las calles
       projection: 'mercator',
