@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { API_URL } from "../config/env";
+import { buildApiUrl, resolveMediaUrl } from "../config/env";
 
 const RecipesContext = createContext(null);
 
@@ -13,10 +13,15 @@ export const RecipesProvider = ({ children }) => {
 
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/recipes/all/`);
+        const response = await fetch(buildApiUrl("/api/recipes/all/"));
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
-        const list = Array.isArray(data) ? data : data.results || [];
+        const raw = Array.isArray(data) ? data : data.results || [];
+        const list = raw.map((recipe) => ({
+          ...recipe,
+          card_image: resolveMediaUrl(recipe.card_image),
+          detailed_image: resolveMediaUrl(recipe.detailed_image),
+        }));
         if (!cancelled) setRecipes(list);
       } catch (err) {
         console.error("Error fetching recipes:", err);

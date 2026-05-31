@@ -1,7 +1,7 @@
 import { useState } from "react";
 import images from "../assets/exporting";
 import { Vector4Icon } from "./icons";
-import { API_URL } from "../config/env";
+import { buildApiUrl } from "../config/env";
 import { validateDistributorForm } from "../utils/formValidation";
 
 const initialForm = {
@@ -45,7 +45,7 @@ const Form = () => {
     setStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch(`${API_URL}/api/distributors/`, {
+      const response = await fetch(buildApiUrl("/api/distributors/"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

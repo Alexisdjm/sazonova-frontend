@@ -8,7 +8,8 @@ RUN npm ci
 
 COPY . .
 
-ARG REACT_APP_API_URL=http://127.0.0.1:8000
+# Obligatorio en producción: --build-arg REACT_APP_API_URL=https://api.tudominio.com
+ARG REACT_APP_API_URL=
 ARG REACT_APP_MAPBOX_ACCESS_TOKEN=
 ARG REACT_APP_MAPBOX_STYLE=mapbox://styles/mapbox/streets-v12
 ARG REACT_APP_SITE_URL=
