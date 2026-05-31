@@ -22,13 +22,26 @@ const waitForPaint = () =>
     requestAnimationFrame(() => requestAnimationFrame(resolve));
   });
 
+const getRecipeSlugFromPath = (pathname) => {
+  const match = pathname.match(/^\/recipes\/([^/]+)\/?$/);
+  return match ? decodeURIComponent(match[1]) : null;
+};
+
+const hideOverlayAfterPaint = async (cancelledRef) => {
+  await waitForPaint();
+  await delay(ROUTE_OVERLAY_MS);
+  return !cancelledRef.current;
+};
+
 /**
  * Overlay al recargar y al cambiar de ruta.
- * En carga inicial: desaparece cuando la página y los datos están listos.
+ * En detalle de receta: permanece hasta que el listado del API termine de cargar.
  */
 const PageTransition = ({ children }) => {
   const { pathname } = useLocation();
   const { isLoading } = useRecipes();
+  const recipeSlug = getRecipeSlugFromPath(pathname);
+  const isRecipeDetailRoute = Boolean(recipeSlug);
   const hasFinishedInitial = useRef(false);
   const isFirstPathname = useRef(true);
   const [visible, setVisible] = useState(true);
@@ -71,9 +84,35 @@ const PageTransition = ({ children }) => {
     setVisible(true);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
+    if (isRecipeDetailRoute && isLoading) {
+      return;
+    }
+
     const timer = setTimeout(() => setVisible(false), ROUTE_OVERLAY_MS);
     return () => clearTimeout(timer);
-  }, [pathname]);
+  }, [pathname, isRecipeDetailRoute, isLoading]);
+
+  useEffect(() => {
+    if (!hasFinishedInitial.current || !isRecipeDetailRoute) return;
+
+    if (isLoading) {
+      setVisible(true);
+      return;
+    }
+
+    const cancelled = { current: false };
+
+    const finishRecipeDetailLoad = async () => {
+      const shouldHide = await hideOverlayAfterPaint(cancelled);
+      if (shouldHide) setVisible(false);
+    };
+
+    finishRecipeDetailLoad();
+
+    return () => {
+      cancelled.current = true;
+    };
+  }, [isRecipeDetailRoute, isLoading, pathname]);
 
   return (
     <>

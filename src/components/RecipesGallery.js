@@ -75,7 +75,7 @@ const RecipesGallery = () => {
               <div key={r.id} className="flex justify-center">
                 <RecipeCard
                   slug={r.slug}
-                  image={r.recipe_image}
+                  image={r.card_image}
                   title={r.name}
                   time={r.preparation_time}
                 />

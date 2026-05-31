@@ -3,22 +3,27 @@ import images from "../assets/exporting";
 import { LogoMixedIcon, InstagramIcon, TikTokIcon, PhoneIcon } from "./icons";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+/**
+ * @param {boolean} scrollAware - true: estilo beige arriba y rojo al hacer scroll (hero).
+ * false: siempre estilo rojo (páginas con fondo beige).
+ */
+const Header = ({ scrollAware = true }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const useRedTheme = scrollAware ? isScrolled : true;
+
   useEffect(() => {
+    if (!scrollAware) return;
+
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrollAware]);
 
   return (
     <>
@@ -78,16 +83,16 @@ const Header = () => {
       </div>
 
     <header className={`z-50 w-[100vw] px-6 lg:px-14 py-4 transition-all duration-300 ${
-      isScrolled ? "fixed top-0 shadow-md text-primary-red" : "absolute top-0 bg-transparent text-secondary-beige"
+      useRedTheme ? "fixed top-0 shadow-md text-primary-red" : "absolute top-0 bg-transparent text-secondary-beige"
     }`}>
         <nav>
             <ul className="flex flex-row justify-between items-center">
-                <li><button onClick={() => setIsSidebarOpen(true)}><img src={isScrolled ? images.menuRed : images.menu} alt="Menu" className="h-[20px] w-auto" /></button></li>
-                <li><Link to="/">{isScrolled ? <img src={images.sazonovaLogoRed} alt="Logo" className="h-12 w-auto" /> : <img src={images.sazonovaLogoBeige} alt="Logo" className="h-12 w-auto" />}</Link></li>
+                <li><button onClick={() => setIsSidebarOpen(true)}><img src={useRedTheme ? images.menuRed : images.menu} alt="Menu" className="h-[20px] w-auto" /></button></li>
+                <li><Link to="/">{useRedTheme ? <img src={images.sazonovaLogoRed} alt="Logo" className="h-12 w-auto" /> : <img src={images.sazonovaLogoBeige} alt="Logo" className="h-12 w-auto" />}</Link></li>
                 <li className="hidden md:block">
                   <Link
                     to="/contact"
-                    className={`${isScrolled ? "text-primary-red" : "text-secondary-beige"} font-ubuntu relative inline-block pb-0.5 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100`}
+                    className={`${useRedTheme ? "text-primary-red" : "text-secondary-beige"} font-ubuntu relative inline-block pb-0.5 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100`}
                   >
                     Contact
                   </Link>

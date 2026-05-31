@@ -5,6 +5,7 @@ export { default as Header } from "./Header";
 export { default as Footer } from "./Footer";
 export { default as FeaturedRecipes } from "./FeaturedRecipes";
 export { default as RecipesPage } from "./RecipesPage";
+export { default as RecipeDetail } from "./RecipeDetail";
 export { default as RecipeDetailPage } from "./RecipeDetailPage";
 export { default as RecipesGallery } from "./RecipesGallery";
 export { default as ClickDown } from "./ClickDown";

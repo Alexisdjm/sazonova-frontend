@@ -34,7 +34,7 @@ const responsive = {
 
 const Recipes = () => {
   const { recipes } = useRecipes();
-
+  
   return (
     <>
       <div className="relative w-full bg-[#650208] bg-fixed overflow-hidden">
@@ -79,7 +79,7 @@ const Recipes = () => {
                 <RecipeCard
                   key={recipe.id ?? index}
                   slug={recipe.slug}
-                  image={recipe.recipe_image}
+                  image={recipe.card_image}
                   title={recipe.name}
                   time={recipe.preparation_time}
                 />

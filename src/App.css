@@ -13,11 +13,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background-color: var(--bg-color);
-  overflow-x: hidden;
 }
 
 header {
