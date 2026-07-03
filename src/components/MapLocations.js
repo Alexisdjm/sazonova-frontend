@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import images from '../assets/exporting';
 import { MAPBOX_ACCESS_TOKEN, MAPBOX_STYLE } from '../config/env';
-import './MapLocations.css';
+import '../styles/MapLocations.css';
 
 // 1. Aquí colocas las ubicaciones.
 // Para sacar coordenadas exactas: En Google Maps busca tu local, dale clic derecho al pin rojo y ahí te saldrán los dos números (el primero es Latitud, el segundo Longitud). Cópialos.
