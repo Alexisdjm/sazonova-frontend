@@ -15,11 +15,11 @@ import AnimatedButton from "./AnimatedButton";
 
 const responsive = {
   largeDesktop: {
-    breakpoint: { max: 3000, min: 1440 },
+    breakpoint: { max: 3000, min: 1600 },
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 1439, min: 1024 },
+    breakpoint: { max: 1599, min: 1024 },
     items: 4,
   },
   tablet: {
