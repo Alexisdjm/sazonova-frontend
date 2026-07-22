@@ -16,25 +16,25 @@ import AnimatedButton from "./AnimatedButton";
 const responsive = {
   largeDesktop: {
     breakpoint: { max: 3000, min: 1280 },
-    items: 4,
+    items: 5,
   },
   desktop: {
     breakpoint: { max: 1279, min: 1024 },
-    items: 3,
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 1023, min: 768 },
-    items: 2,
+    items: 3,
   },
   mobile: {
     breakpoint: { max: 767, min: 0 },
-    items: 1,
+    items: 2,
   },
 };
 
 const Recipes = () => {
   const { recipes } = useRecipes();
-  
+
   return (
     <>
       <div className="relative w-full bg-[#650208] bg-fixed overflow-hidden">
@@ -72,7 +72,7 @@ const Recipes = () => {
             customDot={<CustomDot colorClass="bg-secondary-beige" />}
             dotListClass="!bottom-0"
             itemClass="px-2 flex justify-center"
-            containerClass="carousel-container !pb-14"
+            containerClass="carousel-container pb-14 pt-10"
           >
             {recipes.length > 0 ? (
               recipes.map((recipe, index) => (

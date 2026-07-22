@@ -15,7 +15,7 @@ const buildResponsive = (count) => {
   return {
     largeDesktop: {
       breakpoint: { max: 3000, min: 1280 },
-      items: Math.min(4, n),
+      items: Math.min(5, n),
     },
     desktop: {
       breakpoint: { max: 1279, min: 1024 },
@@ -23,11 +23,11 @@ const buildResponsive = (count) => {
     },
     tablet: {
       breakpoint: { max: 1023, min: 768 },
-      items: Math.min(2, n),
+      items: Math.min(3, n),
     },
     mobile: {
       breakpoint: { max: 767, min: 0 },
-      items: 1,
+      items: 2,
     },
   };
 };
@@ -35,12 +35,12 @@ const buildResponsive = (count) => {
 const FeaturedRecipes = () => {
   const { recipes, isLoading } = useRecipes();
 
-  const items = useMemo(
-    () => recipes.filter(isRecipeFeatured),
-    [recipes]
-  );
+  const items = useMemo(() => recipes.filter(isRecipeFeatured), [recipes]);
 
-  const responsive = useMemo(() => buildResponsive(items.length), [items.length]);
+  const responsive = useMemo(
+    () => buildResponsive(items.length),
+    [items.length],
+  );
   const maxVisible = Math.min(4, items.length);
 
   return (
@@ -77,7 +77,7 @@ const FeaturedRecipes = () => {
             customDot={<CustomDot colorClass="bg-primary-red" />}
             dotListClass="!bottom-0"
             itemClass="px-2 flex justify-center"
-            containerClass="carousel-container !pb-14"
+            containerClass="carousel-container pb-14 pt-10"
           >
             {items.map((recipe) => (
               <RecipeCard
