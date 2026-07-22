@@ -14,11 +14,11 @@ const buildResponsive = (count) => {
   const n = Math.max(count, 1);
   return {
     largeDesktop: {
-      breakpoint: { max: 3000, min: 1280 },
+      breakpoint: { max: 3000, min: 1440 },
       items: Math.min(5, n),
     },
     desktop: {
-      breakpoint: { max: 1279, min: 1024 },
+      breakpoint: { max: 1439, min: 1024 },
       items: Math.min(4, n),
     },
     tablet: {
