@@ -118,8 +118,7 @@ const RecipeDetail = ({ recipe }) => {
               <ol className="space-y-6 sm:space-y-8">
                 {steps.map((step) => {
                   const blocks = splitBlocks(step.instruction);
-                  const showPhase =
-                    step.show_name && step.fase_name?.trim();
+                  const faseName = step.fase_name?.trim();
 
                   return (
                     <li key={step.id} className="flex gap-3 sm:gap-4">
@@ -127,9 +126,9 @@ const RecipeDetail = ({ recipe }) => {
                         {step.step_number}
                       </span>
                       <div className="flex-1 min-w-0 pt-0.5">
-                        {showPhase && (
+                        {faseName && (
                           <p className="font-sugo text-base sm:text-lg text-primary-red font-medium mb-2 sm:mb-3">
-                            {step.fase_name.trim()}
+                            {faseName}
                           </p>
                         )}
                         <div className="space-y-2 sm:space-y-3">
