@@ -58,7 +58,7 @@ const Recipes = () => {
             marca
           </h3>
         </div>
-        <div className="relative z-10 w-[80%] max-w-10xl mx-auto px-2 sm:px-7">
+        <div className="relative z-10 md:w-full w-[80%] max-w-10xl md:ml-5 mx-auto px-2 sm:px-7">
           <Carousel
             responsive={responsive}
             infinite={true}
@@ -72,7 +72,7 @@ const Recipes = () => {
             customDot={<CustomDot colorClass="bg-secondary-beige" />}
             dotListClass="!bottom-0"
             itemClass="px-2 flex justify-center"
-            containerClass="carousel-container pb-14 pt-10"
+            containerClass="carousel-container lg:pb-14 lg:pt-10"
           >
             {recipes.length > 0 ? (
               recipes.map((recipe, index) => (
