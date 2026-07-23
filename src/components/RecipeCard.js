@@ -10,11 +10,11 @@ const RecipeCard = ({ image, title, description, time, slug }) => {
         src={image}
         alt={title}
       />
-      <h2 className="font-ubuntu text-center leading-tight md:text-lg text-base">{title}</h2>
+      <h2 className="font-ubuntu text-center leading-tight md:text-lg text-sm relative z-10">{title}</h2>
       {time && (
         <p className="font-ubuntu opacity-50 text-sm md:mt-1">{`${time}`}</p>
       )}
-      <span className="relative mt-1 md:mt-2 inline-block font-pangolin bg-black text-secondary-beige px-10 py-1 md:py-2 rounded-lg transition-colors duration-300 ease-in-out hover:bg-secondary-beige hover:text-black">
+      <span className="relative mt-1 md:mt-2 inline-block font-pangolin bg-black text-secondary-beige px-10 py-1 md:py-2 rounded-lg transition-colors duration-300 ease-in-out hover:bg-secondary-beige hover:text-black border border-black ">
         Ver
       </span>
     </div>

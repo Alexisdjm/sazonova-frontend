@@ -72,7 +72,7 @@ const Recipes = () => {
             customDot={<CustomDot colorClass="bg-secondary-beige" />}
             dotListClass="!bottom-0"
             itemClass="px-2 flex justify-center"
-            containerClass="carousel-container lg:pb-14 lg:pt-10"
+            containerClass="carousel-container lg:pb-14 pb-5 lg:pt-10"
           >
             {recipes.length > 0 ? (
               recipes.map((recipe, index) => (
