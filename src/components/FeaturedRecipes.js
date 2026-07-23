@@ -60,7 +60,7 @@ const FeaturedRecipes = () => {
           </p>
         ) : items.length === 0 ? (
           <h1 className="text-center py-8 font-sugo text-2xl">
-            No hay resultados
+            No hay resultados...
           </h1>
         ) : (
           <Carousel

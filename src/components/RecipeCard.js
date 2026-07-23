@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const RecipeCard = ({ image, title, description, time, slug }) => {
+const RecipeCard = ({ image, title, time, slug }) => {
   const card = (
     <div className="flex flex-col items-center justify-end md:h-[225px] md:w-[225px] w-[40vw] h-[40vw] bg-secondary-beige rounded-3xl py-4 shadow-[0_8px_12px_rgba(0,0,0,0.12)]">
       <img
@@ -14,7 +14,7 @@ const RecipeCard = ({ image, title, description, time, slug }) => {
       {time && (
         <p className="font-ubuntu opacity-50 text-sm md:mt-1">{`${time}`}</p>
       )}
-      <span className="relative mt-1 md:mt-2 inline-block font-pangolin bg-black text-secondary-beige px-10 py-1 md:py-2 rounded-lg transition-colors duration-300 ease-in-out hover:bg-secondary-beige hover:text-black border border-black ">
+      <span className="relative mt-1 md:mt-2 inline-block font-pangolin bg-black text-secondary-beige px-10 py-1 md:py-2 rounded-lg transition-colors duration-300 ease-in-out hover:bg-secondary-beige hover:text-black border-2 border-black ">
         Ver
       </span>
     </div>

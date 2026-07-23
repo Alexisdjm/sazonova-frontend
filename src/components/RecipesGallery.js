@@ -38,7 +38,7 @@ const RecipesGallery = () => {
         height={250}
         src={images.cuchara}
         alt="cuchara"
-        className="rotate-[0deg] absolute z-[0] -top-[0] -right-10"
+        className="rotate-[0deg] absolute z-[0] -top-[0] -right-10 max-w-[180px] md:max-w-full"
       />
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <SazonovaIcon
@@ -62,11 +62,11 @@ const RecipesGallery = () => {
           <p className="text-center py-8 font-ubuntu">Cargando recetas...</p>
         ) : recipes.length === 0 ? (
           <h1 className="text-center py-8 font-sugo text-2xl">
-            No hay resultados
+            No hay resultados...
           </h1>
         ) : (
           <div
-            className="grid gap-6"
+            className="grid gap-x-6"
             style={{
               gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
             }}

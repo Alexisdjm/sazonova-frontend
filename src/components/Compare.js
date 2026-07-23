@@ -16,7 +16,7 @@ const Compare = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen max-h-[650px] lg:max-h-[800px] xl:max-h-[100vh]">
+    <section className="relative w-full h-screen max-h-[600px] md:max-h-[650px] lg:max-h-[800px] xl:max-h-[100vh]">
       {/* Flechas superiores independientes.
           Puedes ajustar el top, left o right de forma individual para cada tamaño de pantalla:
           por defecto, md: (tablets) y lg: (desktop). */}
