@@ -58,7 +58,7 @@ const Recipes = () => {
             marca
           </h3>
         </div>
-        <div className="relative z-10 w-full md:w-[80%] max-w-10xl md:ml-5 mx-auto px-2 sm:px-7">
+        <div className="relative z-10 w-full md:w-[80%] max-w-10xl mx-auto px-2 sm:px-7">
           <Carousel
             responsive={responsive}
             infinite={true}
