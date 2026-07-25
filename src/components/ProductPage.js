@@ -6,6 +6,7 @@ import {
   FeaturedRecipes,
   ProductInformation,
   RepeatingBrandBackground,
+  Breadcrumbs,
 } from "./";
 import { useProducts } from "../context/ProductsContext";
 
@@ -31,7 +32,7 @@ const ProductPage = () => {
     return (
       <>
         <Header scrollAware={false} />
-        <main className="relative overflow-hidden pt-28 md:pt-32 pb-12 md:pb-20">
+        <main className="relative pt-28 md:pt-32 pb-12 md:pb-20">
           <RepeatingBrandBackground opacity={0.4} />
           <p className="relative z-10 text-center py-16 font-ubuntu text-primary-red">
             Cargando producto...
@@ -45,7 +46,14 @@ const ProductPage = () => {
   return (
     <>
       <Header scrollAware={false} />
-      <main className="relative overflow-hidden pt-28 md:pt-32 pb-12 md:pb-20">
+      <main className="relative pt-28 md:pt-32 pb-12 md:pb-20">
+        <Breadcrumbs
+          items={[
+            { label: "Inicio", to: "/" },
+            { label: "Productos" },
+            { label: product.name },
+          ]}
+        />
         <RepeatingBrandBackground opacity={0.4} />
         <div className="relative z-10">
           <ProductInformation

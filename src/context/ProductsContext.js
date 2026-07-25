@@ -5,9 +5,27 @@ const ProductsContext = createContext(null);
 
 const normalizeProduct = (raw) => {
   if (!raw || typeof raw !== "object") return null;
+
+  const images = Array.isArray(raw.images)
+    ? [...raw.images]
+        .map((img) => ({
+          ...img,
+          url: resolveMediaUrl(img?.url),
+        }))
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    : [];
+
+  const primaryImage =
+    resolveMediaUrl(raw.primary_image) ||
+    images[0]?.url ||
+    resolveMediaUrl(raw.image || raw.card_image || raw.detailed_image) ||
+    "";
+
   return {
     ...raw,
-    image: resolveMediaUrl(raw.image || raw.card_image || raw.detailed_image),
+    images,
+    primary_image: primaryImage,
+    image: primaryImage,
     card_image: resolveMediaUrl(raw.card_image),
     detailed_image: resolveMediaUrl(raw.detailed_image),
     nutritional_info: resolveMediaUrl(raw.nutritional_info),

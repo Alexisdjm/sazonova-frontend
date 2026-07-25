@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import images from "../assets/exporting";
+import useSplitName from "../hooks/useSplitName";
 
 const DESCRIPTION_PREVIEW_LENGTH = 220;
 
@@ -36,19 +37,13 @@ const AccordionItem = ({ title, isOpen, onToggle, children }) => (
   </div>
 );
 
-const splitProductName = (name = "") => {
-  const parts = name.trim().split(/\s+/);
-  if (parts.length <= 1) return { first: name, rest: "" };
-  return { first: parts[0], rest: parts.slice(1).join(" ") };
-};
-
 const ProductInformation = ({ product, relatedProduct }) => {
   const [descExpanded, setDescExpanded] = useState(false);
   const [openPanels, setOpenPanels] = useState({});
+  const { first, rest } = useSplitName(product?.name);
 
   if (!product) return null;
 
-  const { first, rest } = splitProductName(product.name);
   const description = product.description?.trim() || "";
   const needsTruncate = description.length > DESCRIPTION_PREVIEW_LENGTH;
   const visibleDescription =
@@ -56,7 +51,7 @@ const ProductInformation = ({ product, relatedProduct }) => {
       ? description
       : `${description.slice(0, DESCRIPTION_PREVIEW_LENGTH).trim()}…`;
 
-  const productImage = product.image || product.card_image || images.adobo;
+  const productImage = product.primary_image || product.images?.[0]?.url || "";
   const ingredients = Array.isArray(product.ingredients)
     ? product.ingredients
     : [];
@@ -79,11 +74,13 @@ const ProductInformation = ({ product, relatedProduct }) => {
           <aside className="order-1 w-full max-w-md mx-auto lg:max-w-none lg:w-[40%] lg:mx-0 flex-shrink-0">
             <div className="lg:sticky lg:top-28 xl:top-32">
               <div className="flex items-center justify-center py-2 lg:py-4">
-                <img
-                  src={productImage}
-                  alt={product.name}
-                  className="w-auto max-w-[180px] sm:max-w-[200px] lg:max-w-[280px] max-h-[min(55vh,380px)] h-auto object-contain drop-shadow-[0_20px_32px_rgba(101,2,8,0.25)]"
-                />
+                {productImage ? (
+                  <img
+                    src={productImage}
+                    alt={product.name}
+                    className="w-auto max-w-[180px] sm:max-w-[200px] lg:max-w-[280px] max-h-[min(55vh,380px)] h-auto object-contain drop-shadow-[0_20px_32px_rgba(101,2,8,0.25)]"
+                  />
+                ) : null}
               </div>
             </div>
           </aside>
@@ -233,9 +230,10 @@ const ProductInformation = ({ product, relatedProduct }) => {
                 <div className="flex items-center gap-3 sm:gap-4 rounded-2xl bg-white p-3 sm:p-4 shadow-[0_8px_20px_rgba(0,0,0,0.08)]">
                   <img
                     src={
+                      relatedProduct.primary_image ||
+                      relatedProduct.images?.[0]?.url ||
                       relatedProduct.image ||
-                      relatedProduct.card_image ||
-                      images.ajo
+                      ""
                     }
                     alt={relatedProduct.name}
                     className="w-16 h-16 sm:w-20 sm:h-20 object-contain flex-shrink-0"

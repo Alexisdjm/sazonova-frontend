@@ -7,6 +7,7 @@ import {
   formatPortions,
   formatCalories,
 } from "../utils/recipeUtils";
+import useSplitName from "../hooks/useSplitName";
 
 const RecipeImage = ({ recipe, className = "" }) => {
   const src = getRecipeImage(recipe);
@@ -60,6 +61,7 @@ const RecipeDetail = ({ recipe }) => {
   const steps = getSortedSteps(recipe.steps);
   const portionsLabel = formatPortions(recipe.portions ?? recipe.porciones);
   const caloriesLabel = formatCalories(recipe.calories ?? recipe.calorias);
+  const { first, rest } = useSplitName(recipe.name);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -76,8 +78,15 @@ const RecipeDetail = ({ recipe }) => {
             <p className="font-ubuntu font-bold text-brand-orange text-xs sm:text-sm uppercase tracking-widest mb-2">
               Receta
             </p>
-            <h1 className="font-sugo text-3xl sm:text-4xl md:text-5xl text-primary-red font-medium leading-tight">
-              {recipe.name}
+            <h1 className="leading-none">
+              <span className="block font-sugo text-3xl sm:text-4xl md:text-5xl text-brand-orange font-medium tracking-wide">
+                {first}
+              </span>
+              {rest && (
+                <span className="block font-calling-heart text-5xl sm:text-6xl md:text-7xl text-primary-red font-medium -mt-1 sm:-mt-2">
+                  {rest}
+                </span>
+              )}
             </h1>
             <RecipeMeta
               preparationTime={recipe.preparation_time}
@@ -88,7 +97,7 @@ const RecipeDetail = ({ recipe }) => {
 
           {recipe.description?.trim() && (
             <section className="mb-8 md:mb-10">
-              <h2 className="font-sugo text-xl sm:text-2xl text-primary-red mb-3 sm:mb-4">
+              <h2 className="font-ubuntu text-xl sm:text-2xl text-primary-red mb-3 sm:mb-4 font-bold">
                 Descripción
               </h2>
               <p className="font-ubuntu text-sm sm:text-base text-primary-red/90 leading-relaxed whitespace-pre-line">
@@ -99,7 +108,7 @@ const RecipeDetail = ({ recipe }) => {
 
           {ingredients.length > 0 && (
             <section className="mb-8 md:mb-10">
-              <h2 className="font-sugo text-xl sm:text-2xl text-primary-red mb-3 sm:mb-4">
+              <h2 className="font-ubuntu text-xl sm:text-2xl text-primary-red mb-3 sm:mb-4 font-bold">
                 Ingredientes
               </h2>
               <ul className="font-ubuntu text-sm sm:text-base text-primary-red/90 space-y-2 list-disc pl-5">
@@ -112,7 +121,7 @@ const RecipeDetail = ({ recipe }) => {
 
           {steps.length > 0 && (
             <section className="mb-8 md:mb-10">
-              <h2 className="font-sugo text-xl sm:text-2xl text-primary-red mb-4 sm:mb-6">
+              <h2 className="font-ubuntu text-xl sm:text-2xl text-primary-red mb-4 sm:mb-6 font-bold">
                 Preparación
               </h2>
               <ol className="space-y-6 sm:space-y-8">
@@ -127,7 +136,7 @@ const RecipeDetail = ({ recipe }) => {
                       </span>
                       <div className="flex-1 min-w-0 pt-0.5">
                         {faseName && (
-                          <p className="font-sugo text-base sm:text-lg text-primary-red font-medium mb-2 sm:mb-3">
+                          <p className="font-ubuntu text-base sm:text-lg text-primary-red font-bold mb-2 sm:mb-3">
                             {faseName}
                           </p>
                         )}
@@ -150,7 +159,7 @@ const RecipeDetail = ({ recipe }) => {
           )}
 
           <section className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-secondary-beige shadow-[0_8px_12px_rgba(0,0,0,0.08)]">
-            <h2 className="font-sugo text-lg sm:text-xl text-primary-red mb-2">
+            <h2 className="font-ubuntu text-lg sm:text-xl text-primary-red mb-2 font-bold">
               ¿Listo para cocinar?
             </h2>
             <p className="font-ubuntu text-primary-red/80 text-sm mb-4">

@@ -12,6 +12,7 @@ export { default as RecipeDetailPage } from "./RecipeDetailPage";
 export { default as RecipesGallery } from "./RecipesGallery";
 export { default as ClickDown } from "./ClickDown";
 export { default as RecipeCard } from "./RecipeCard";
+export { default as Breadcrumbs } from "./Breadcrumbs";
 export { default as NotFound } from "./NotFound";
 export { default as VideoComponent } from "./VideoComponent";
 export { default as Slider } from "./Slider";

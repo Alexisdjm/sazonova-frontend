@@ -4,14 +4,18 @@ import { LogoMixedIcon, InstagramIcon, TikTokIcon, PhoneIcon } from "./icons";
 import { Link } from "react-router-dom";
 
 /**
- * @param {boolean} scrollAware - true: estilo beige arriba y rojo al hacer scroll (hero).
- * false: siempre estilo rojo (páginas con fondo beige).
+ * @param {boolean} scrollAware
+ * - true (Homepage): transparente + iconos beige → al scroll fondo beige + iconos rojos
+ * - false (detalle): siempre fondo primary-red + logo/texto/burger beige
  */
 const Header = ({ scrollAware = true }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const useRedTheme = scrollAware ? isScrolled : true;
+  // En modo dinámico, tras scroll: barra beige e iconos rojos
+  const useScrolledBeigeBar = scrollAware && isScrolled;
+  // Iconos/textos rojos solo en esa barra beige del scroll
+  const useRedAssets = useScrolledBeigeBar;
 
   useEffect(() => {
     if (!scrollAware) return;
@@ -24,6 +28,12 @@ const Header = ({ scrollAware = true }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollAware]);
+
+  const headerSurfaceClass = !scrollAware
+    ? "fixed top-0 bg-primary-red shadow-md text-secondary-beige"
+    : useScrolledBeigeBar
+      ? "fixed top-0 bg-[var(--bg-color)] shadow-md text-primary-red"
+      : "absolute top-0 bg-transparent text-secondary-beige";
 
   return (
     <>
@@ -140,44 +150,42 @@ const Header = ({ scrollAware = true }) => {
       </div>
 
       <header
-        className={`z-50 w-[100vw] px-6 lg:px-14 py-4 transition-all duration-300 ${
-          useRedTheme
-            ? "fixed top-0 shadow-md text-primary-red"
-            : "absolute top-0 bg-transparent text-secondary-beige"
-        }`}
+        className={`z-50 w-[100vw] px-6 lg:px-14 py-4 transition-all duration-300 ${headerSurfaceClass}`}
       >
         <nav>
           <ul className="flex flex-row justify-between items-center">
             <li>
-              <button onClick={() => setIsSidebarOpen(true)}>
+              <button
+                type="button"
+                onClick={() => setIsSidebarOpen(true)}
+                aria-label="Abrir menú"
+              >
                 <img
-                  src={useRedTheme ? images.menuRed : images.menu}
-                  alt="Menu"
+                  src={useRedAssets ? images.menuRed : images.menu}
+                  alt=""
                   className="h-[20px] w-auto"
                 />
               </button>
             </li>
             <li>
               <Link to="/">
-                {useRedTheme ? (
-                  <img
-                    src={images.sazonovaLogoRed}
-                    alt="Logo"
-                    className="h-12 w-auto"
-                  />
-                ) : (
-                  <img
-                    src={images.sazonovaLogoBeige}
-                    alt="Logo"
-                    className="h-12 w-auto"
-                  />
-                )}
+                <img
+                  src={
+                    useRedAssets
+                      ? images.sazonovaLogoRed
+                      : images.sazonovaLogoBeige
+                  }
+                  alt="Logo"
+                  className="h-12 w-auto"
+                />
               </Link>
             </li>
             <li className="hidden md:block">
               <Link
                 to="/contact"
-                className={`${useRedTheme ? "text-primary-red" : "text-secondary-beige"} font-ubuntu relative inline-block pb-0.5 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100`}
+                className={`${
+                  useRedAssets ? "text-primary-red" : "text-secondary-beige"
+                } font-ubuntu relative inline-block pb-0.5 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100`}
               >
                 Contact
               </Link>
