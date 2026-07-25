@@ -46,14 +46,18 @@ const ProductPage = () => {
   return (
     <>
       <Header scrollAware={false} />
-      <main className="relative pt-28 md:pt-32 pb-12 md:pb-20">
-        <Breadcrumbs
-          items={[
-            { label: "Inicio", to: "/" },
-            { label: "Productos" },
-            { label: product.name },
-          ]}
-        />
+      <main className="relative pt-28 md:pt-24 pb-12 md:pb-20">
+        <div className="relative z-10">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10 mb-4 sm:mb-6">
+            <Breadcrumbs
+              items={[
+                { label: "Inicio", to: "/" },
+                { label: "Productos" },
+                { label: product.name },
+              ]}
+            />
+          </div>
+        </div>
         <RepeatingBrandBackground opacity={0.4} />
         <div className="relative z-10">
           <ProductInformation

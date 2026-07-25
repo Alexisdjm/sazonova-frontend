@@ -12,7 +12,10 @@ const RecipesPage = () => {
   return (
     <>
       <Header />
-      <HeroBanner>
+      <HeroBanner
+        ajoTo="/product/ajo-molido"
+        adoboTo="/product/adobo-completo"
+      >
         <div className="w-full flex flex-col items-center mb-[clamp(5rem,20vh,7rem)] lg:mb-0">
           <h1
             data-text="las mejores"
@@ -37,18 +40,6 @@ const RecipesPage = () => {
           Descubre recetas irresistibles donde el adobo y el ajo en polvo elevan
           cada plato.
         </p>
-        <div className="absolute flex gap-6 lg:gap-10 lg:w-[50rem] lg:justify-between flex-row bottom-[clamp(2rem,7vh,8rem)] lg:bottom-[5rem] z-20">
-          <img
-            className="lg:w-[175px] lg:h-[350px] lg:rotate-[-10deg] w-[clamp(80px,30vw,150px)] h-auto object-contain rotate-[-10deg] drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
-            src={images.ajo}
-            alt=""
-          />
-          <img
-            className="lg:w-[175px] lg:h-[350px] lg:rotate-[10deg] w-[clamp(80px,30vw,150px)] h-auto object-contain rotate-[10deg] drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
-            src={images.adobo}
-            alt=""
-          />
-        </div>
       </HeroBanner>
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-8 relative z-10">

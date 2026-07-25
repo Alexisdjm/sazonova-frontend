@@ -8,6 +8,7 @@ import {
   formatCalories,
 } from "../utils/recipeUtils";
 import useSplitName from "../hooks/useSplitName";
+import images from "../assets/exporting";
 
 const RecipeImage = ({ recipe, className = "" }) => {
   const src = getRecipeImage(recipe);
@@ -26,28 +27,58 @@ const RecipeImage = ({ recipe, className = "" }) => {
   );
 };
 
-const RecipeMeta = ({ preparationTime, caloriesLabel, portionsLabel }) => {
+const formatIngredientsCount = (count) => {
+  if (!count || count < 1) return null;
+  return `${count} ${count === 1 ? "ingrediente" : "ingredientes"}`;
+};
+
+const RecipeMeta = ({
+  preparationTime,
+  ingredientsLabel,
+  portionsLabel,
+  caloriesLabel,
+}) => {
   const items = [
-    preparationTime && { key: "time", label: preparationTime },
-    caloriesLabel && { key: "calories", label: caloriesLabel },
-    portionsLabel && { key: "portions", label: portionsLabel },
+    preparationTime && {
+      key: "time",
+      label: preparationTime,
+      icon: images.chronograph,
+      alt: "Tiempo de preparación",
+    },
+    ingredientsLabel && {
+      key: "ingredients",
+      label: ingredientsLabel,
+      icon: images.ingredients,
+      alt: "Ingredientes",
+    },
+    portionsLabel && {
+      key: "portions",
+      label: portionsLabel,
+      icon: images.pizza,
+      alt: "Porciones",
+    },
+    caloriesLabel && {
+      key: "calories",
+      label: caloriesLabel,
+      icon: images.caloriesCalculator,
+      alt: "Calorías",
+    },
   ].filter(Boolean);
 
   if (items.length === 0) return null;
 
   return (
-    <ul className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-4">
-      {items.map((item, index) => (
-        <li key={item.key} className="flex items-center gap-3">
-          {index > 0 && (
-            <span
-              className="text-primary-red/40 select-none"
-              aria-hidden="true"
-            >
-              ·
-            </span>
-          )}
+    <ul className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-3 mt-4">
+      {items.map((item) => (
+        <li key={item.key} className="flex items-center gap-2">
+          <img
+            src={item.icon}
+            alt=""
+            aria-hidden="true"
+            className="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+          />
           <span className="font-ubuntu text-sm sm:text-base text-primary-red/80">
+            <span className="sr-only">{item.alt}: </span>
             {item.label}
           </span>
         </li>
@@ -59,8 +90,9 @@ const RecipeMeta = ({ preparationTime, caloriesLabel, portionsLabel }) => {
 const RecipeDetail = ({ recipe }) => {
   const ingredients = getIngredientItems(recipe.ingredients);
   const steps = getSortedSteps(recipe.steps);
-  const portionsLabel = formatPortions(recipe.portions ?? recipe.porciones);
-  const caloriesLabel = formatCalories(recipe.calories ?? recipe.calorias);
+  const portionsLabel = formatPortions(recipe.portions);
+  const caloriesLabel = formatCalories(recipe.calories);
+  const ingredientsLabel = formatIngredientsCount(ingredients.length);
   const { first, rest } = useSplitName(recipe.name);
 
   return (
@@ -90,8 +122,9 @@ const RecipeDetail = ({ recipe }) => {
             </h1>
             <RecipeMeta
               preparationTime={recipe.preparation_time}
-              caloriesLabel={caloriesLabel}
+              ingredientsLabel={ingredientsLabel}
               portionsLabel={portionsLabel}
+              caloriesLabel={caloriesLabel}
             />
           </header>
 

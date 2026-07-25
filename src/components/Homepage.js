@@ -16,7 +16,10 @@ const Homepage = () => {
   return (
     <>
       <Header />
-      <HeroBanner>
+      <HeroBanner
+        ajoTo="/product/ajo-molido"
+        adoboTo="/product/adobo-completo"
+      >
         <div className="w-full flex flex-col items-center mb-[clamp(5rem,20vh,7rem)] lg:mb-0">
           <h1
             data-text="el sabor"
@@ -41,18 +44,6 @@ const Homepage = () => {
           Ajo y Adobo: el origen del buen gusto. Simplificamos el arte de
           sazonar para que tú solo te preocupes por disfrutar del resultado.
         </p>
-        <div className="absolute flex gap-6 lg:gap-10 lg:w-[50rem] lg:justify-between flex-row bottom-[clamp(2rem,7vh,8rem)] lg:bottom-[5rem] z-20">
-          <img
-            className="lg:w-[175px] lg:h-[350px] lg:rotate-[-10deg] w-[clamp(80px,30vw,150px)] h-auto object-contain rotate-[-10deg] drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
-            src={images.ajo}
-            alt=""
-          />
-          <img
-            className="lg:w-[175px] lg:h-[350px] lg:rotate-[10deg] w-[clamp(80px,30vw,150px)] h-auto object-contain rotate-[10deg] drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]"
-            src={images.adobo}
-            alt=""
-          />
-        </div>
         <ClickDown />
       </HeroBanner>
       <Recipes />

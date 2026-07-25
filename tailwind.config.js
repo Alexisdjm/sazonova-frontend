@@ -24,9 +24,14 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(30px)" },
         },
+        "bob-short": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "up-down": "up-down 3s ease-in-out infinite",
+        "bob-short": "bob-short 1.1s ease-in-out infinite",
       },
     },
   },

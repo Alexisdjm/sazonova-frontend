@@ -38,13 +38,22 @@ const hideOverlayAfterPaint = async (cancelledRef) => {
  * En detalle de receta: permanece hasta que el listado del API termine de cargar.
  */
 const PageTransition = ({ children }) => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const { isLoading } = useRecipes();
   const recipeSlug = getRecipeSlugFromPath(pathname);
   const isRecipeDetailRoute = Boolean(recipeSlug);
   const hasFinishedInitial = useRef(false);
   const isFirstPathname = useRef(true);
   const [visible, setVisible] = useState(true);
+
+  const scrollToHash = (targetHash) => {
+    const id = targetHash.replace(/^#/, "");
+    if (!id) return false;
+    const el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    return true;
+  };
 
   useEffect(() => {
     if (hasFinishedInitial.current || isLoading) return;
@@ -63,6 +72,12 @@ const PageTransition = ({ children }) => {
       if (!cancelled) {
         setVisible(false);
         hasFinishedInitial.current = true;
+        if (hash) {
+          // Tras la carga inicial, ir al ancla si viene en la URL
+          requestAnimationFrame(() => {
+            scrollToHash(hash);
+          });
+        }
       }
     };
 
@@ -71,7 +86,7 @@ const PageTransition = ({ children }) => {
     return () => {
       cancelled = true;
     };
-  }, [isLoading]);
+  }, [isLoading, hash]);
 
   useLayoutEffect(() => {
     if (!hasFinishedInitial.current) return;
@@ -82,6 +97,21 @@ const PageTransition = ({ children }) => {
     }
 
     setVisible(true);
+
+    if (hash) {
+      // Esperar a que el overlay y el DOM del home estén listos
+      const hashTimer = setTimeout(() => {
+        if (!scrollToHash(hash)) {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }
+      }, ROUTE_OVERLAY_MS + 80);
+      const timer = setTimeout(() => setVisible(false), ROUTE_OVERLAY_MS);
+      return () => {
+        clearTimeout(hashTimer);
+        clearTimeout(timer);
+      };
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
     if (isRecipeDetailRoute && isLoading) {
@@ -90,7 +120,7 @@ const PageTransition = ({ children }) => {
 
     const timer = setTimeout(() => setVisible(false), ROUTE_OVERLAY_MS);
     return () => clearTimeout(timer);
-  }, [pathname, isRecipeDetailRoute, isLoading]);
+  }, [pathname, hash, isRecipeDetailRoute, isLoading]);
 
   useEffect(() => {
     if (!hasFinishedInitial.current || !isRecipeDetailRoute) return;

@@ -2,40 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import images from "../assets/exporting";
 import useSplitName from "../hooks/useSplitName";
+import AccordionItem from "./AccordionItem";
 
 const DESCRIPTION_PREVIEW_LENGTH = 220;
-
-const AccordionItem = ({ title, isOpen, onToggle, children }) => (
-  <div className="border-b border-primary-red">
-    <button
-      type="button"
-      onClick={onToggle}
-      aria-expanded={isOpen}
-      className="flex w-full items-center justify-between gap-4 py-4 text-left"
-    >
-      <span className="font-ubuntu text-base sm:text-lg text-primary-red font-bold">
-        {title}
-      </span>
-      <span
-        className="flex-shrink-0 text-xl sm:text-2xl leading-none text-primary-red font-light select-none"
-        aria-hidden="true"
-      >
-        {isOpen ? "−" : "+"}
-      </span>
-    </button>
-    <div
-      className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-      }`}
-    >
-      <div className="overflow-hidden">
-        <div className="pb-4 font-ubuntu text-sm sm:text-base text-primary-red/90 leading-relaxed">
-          {children}
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 const ProductInformation = ({ product, relatedProduct }) => {
   const [descExpanded, setDescExpanded] = useState(false);
@@ -73,12 +42,12 @@ const ProductInformation = ({ product, relatedProduct }) => {
         <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 md:gap-10 lg:gap-14">
           <aside className="order-1 w-full max-w-md mx-auto lg:max-w-none lg:w-[40%] lg:mx-0 flex-shrink-0">
             <div className="lg:sticky lg:top-28 xl:top-32">
-              <div className="flex items-center justify-center py-2 lg:py-4">
+              <div className="flex items-center justify-center py-4 lg:py-12">
                 {productImage ? (
                   <img
                     src={productImage}
                     alt={product.name}
-                    className="w-auto max-w-[180px] sm:max-w-[200px] lg:max-w-[280px] max-h-[min(55vh,380px)] h-auto object-contain drop-shadow-[0_20px_32px_rgba(101,2,8,0.25)]"
+                    className="w-auto max-w-[180px] sm:max-w-[200px] lg:max-w-[280px] max-h-[min(55vh,380px)] h-auto object-contain "
                   />
                 ) : null}
               </div>
@@ -126,7 +95,7 @@ const ProductInformation = ({ product, relatedProduct }) => {
             )}
 
             <Link
-              to="/"
+              to="/#map-locations"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-red text-secondary-beige font-ubuntu font-semibold text-sm sm:text-base px-8 py-3 shadow-[0_8px_16px_rgba(125,3,10,0.25)] transition-opacity hover:opacity-90 mb-6 sm:mb-8"
             >
               DÓNDE COMPRAR

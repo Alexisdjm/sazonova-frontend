@@ -9,6 +9,10 @@ const images = {
   clickDown: require("./icons/Polygon2.png"),
   menu: require("./icons/menu_btn.png"),
   menuRed: require("./icons/menu_btn_red.png"),
+  ingredients: require("./icons/ingredientes.webp"),
+  chronograph: require("./icons/cronografo.webp"),
+  caloriesCalculator: require("./icons/calculadora-de-calorias.webp"),
+  pizza: require("./icons/pizza.webp"),
   // Images
   ajo: require("./images/ajo.webp"),
   adobo: require("./images/adobo.webp"),

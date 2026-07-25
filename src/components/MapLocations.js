@@ -179,7 +179,10 @@ const MapLocations = () => {
   }, []);
 
   return (
-    <section className="w-full relative overflow-hidden bg-transparent">
+    <section
+      id="map-locations"
+      className="w-full relative overflow-hidden bg-transparent scroll-mt-24"
+    >
       <RepeatingBrandBackground />
 
       <div className="relative z-10 font-sugo flex flex-col items-center mb-10 mt-20 px-10">
