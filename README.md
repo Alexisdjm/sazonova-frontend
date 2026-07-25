@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+# Sazonova — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sitio web de Sazonova (React + Create React App + Tailwind). Consume el API Django para recetas, productos y el formulario de distribuidores.
 
-## Available Scripts
+## Requisitos
 
-In the project directory, you can run:
+- Node.js 18+ (recomendado 20)
+- Backend Django corriendo en local **solo** si vas a probar contra API de desarrollo (`127.0.0.1:8000`)
 
-### `npm start`
+## Instalación
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+cp .env.example .env
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Edita `.env` según el modo en el que quieras trabajar (ver abajo).
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Variable de debug del API
 
-### `npm run build`
+En `src/config/env.js` (y en `.env`) controlas a dónde van **todas** las peticiones (`/api/recipes`, `/api/products`, `/api/distributors`, etc.):
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| `REACT_APP_API_DEBUG` | Comportamiento |
+|-----------------------|----------------|
+| `true` | Todas las consultas van a `http://127.0.0.1:8000` |
+| `false` | Usa `REACT_APP_API_URL` (producción / staging) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+En la consola del navegador verás un aviso cuando el debug esté activo.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Importante:** Create React App inyecta las variables en **build time**. Tras cambiar `.env` debes reiniciar `npm start` o volver a hacer el build.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Probar en desarrollo (local)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Backend local + frontend local
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Arranca Django en `http://127.0.0.1:8000`.
+2. En `.env`:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```env
+REACT_APP_API_DEBUG=true
+REACT_APP_MAPBOX_ACCESS_TOKEN=tu_token
+REACT_APP_MAPBOX_STYLE=mapbox://styles/tu-usuario/tu-estilo
+```
 
-## Learn More
+3. Arranca el frontend:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Abre `http://localhost:3000`.
 
-### Code Splitting
+Endpoints que usa el frontend (sobre `127.0.0.1:8000` con debug):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `GET /api/recipes/all/`
+- `GET /api/products/all/`
+- `POST /api/distributors/`
+- Mapbox (token y style desde `.env`)
 
-### Analyzing the Bundle Size
+### 2. Frontend local apuntando al API de producción
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Útil para validar datos reales sin desplegar:
 
-### Making a Progressive Web App
+```env
+REACT_APP_API_DEBUG=false
+REACT_APP_API_URL=https://api.mysazonova.com
+REACT_APP_MAPBOX_ACCESS_TOKEN=tu_token
+REACT_APP_MAPBOX_STYLE=mapbox://styles/tu-usuario/tu-estilo
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Push y producción
 
-### Deployment
+Las variables `REACT_APP_*` se **incrustan en el build**. No bastan en runtime del contenedor nginx: deben existir en el momento de `npm run build` / `docker compose build`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Checklist antes del push / deploy
 
-### `npm run build` fails to minify
+1. En el entorno de build (Jenkins, `.env` del servidor, `.env.production`):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```env
+REACT_APP_API_DEBUG=false
+REACT_APP_API_URL=https://api.mysazonova.com
+REACT_APP_MAPBOX_ACCESS_TOKEN=pk.tu_token_publico
+REACT_APP_MAPBOX_STYLE=mapbox://styles/tu-usuario/tu-estilo
+REACT_APP_SITE_URL=https://mysazonova.com
+GENERATE_SOURCEMAP=false
+```
+
+2. **Nunca** dejes `REACT_APP_API_DEBUG=true` en el build de producción (forzaría localhost).
+
+3. Rebuild de la imagen (las variables van como build-args en Docker):
+
+```bash
+docker compose build --no-cache
+docker compose up -d
+```
+
+O con CRA directo:
+
+```bash
+npm run build
+# servir la carpeta build/ (nginx, serve, etc.)
+```
+
+4. Verifica en el navegador (producción):
+
+- Network → peticiones a `api.mysazonova.com` (no a `127.0.0.1`)
+- Mapbox → estilo custom (no `streets-v12` por defecto)
+- Formulario distribuidores → status `201`
+- Productos → `/product/{slug}` carga desde el API
+
+### Jenkins / CI
+
+Pasa las variables en el **build** de la imagen:
+
+- `REACT_APP_API_DEBUG=false`
+- `REACT_APP_API_URL=...`
+- `REACT_APP_MAPBOX_ACCESS_TOKEN=...` (Credential / secret)
+- `REACT_APP_MAPBOX_STYLE=...`
+
+Tu `Dockerfile` y `docker-compose.yml` ya aceptan estos build-args (añade `REACT_APP_API_DEBUG` si aún no está cableado en el pipeline).
+
+---
+
+## Rutas principales
+
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Homepage |
+| `/recipes` | Listado / galería de recetas |
+| `/recipes/:slug` | Detalle de receta |
+| `/product/:slug` | PDP de producto (hay 2 productos) |
+
+Contextos globales:
+
+- `RecipesContext` → `GET /api/recipes/all/`
+- `ProductsContext` → `GET /api/products/all/`
+
+---
+
+## Scripts
+
+```bash
+npm start   # desarrollo
+npm run build
+npm test
+```
+
+## Notas
+
+- Fuentes custom: self-host en `src/assets/Fonts/` vía `src/fonts.css`.
+- Mapbox: el estilo custom requiere `REACT_APP_MAPBOX_STYLE` en el **build**, no solo el token.
+- No subas `.env` ni tokens secretos al repositorio (usa `.env.example` / Credentials en Jenkins).
