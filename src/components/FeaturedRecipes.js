@@ -44,14 +44,14 @@ const FeaturedRecipes = () => {
   const maxVisible = Math.min(4, items.length);
 
   return (
-    <div className="py-12">
+    <div id="featured-recipes" className="py-12 scroll-mt-28 md:scroll-mt-32">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col items-center justify-center">
           <h2 className="font-sugo text-5xl font-medium text-brand-orange">
             RECETAS
           </h2>
           <h2 className="font-calling-heart text-5xl font-medium text-primary-red">
-            Elecciones
+            Destacadas
           </h2>
         </div>
         {isLoading ? (

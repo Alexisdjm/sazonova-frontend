@@ -1,9 +1,9 @@
 import { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import images from '../assets/exporting';
 import { MAPBOX_ACCESS_TOKEN, MAPBOX_STYLE } from '../config/env';
 import '../styles/MapLocations.css';
+import RepeatingBrandBackground from './RepeatingBrandBackground';
 
 // 1. Aquí colocas las ubicaciones.
 // Para sacar coordenadas exactas: En Google Maps busca tu local, dale clic derecho al pin rojo y ahí te saldrán los dos números (el primero es Latitud, el segundo Longitud). Cópialos.
@@ -180,16 +180,7 @@ const MapLocations = () => {
 
   return (
     <section className="w-full relative overflow-hidden bg-transparent">
-      {/* Fondo repetitivo igual al Slider */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex flex-col gap-y-3 py-3 -ml-16">
-        {[...Array(35)].map((_, i) => (
-          <div key={i} className={`flex gap-x-3 min-w-max ${i % 2 !== 0 ? '-translate-x-[62px]' : ''}`}>
-            {[...Array(40)].map((_, j) => (
-              <img key={j} src={images.sazonovaLetters} className="h-[60px] w-auto opacity-[0.7] object-contain" alt="" />
-            ))}
-          </div>
-        ))}
-      </div>
+      <RepeatingBrandBackground />
 
       <div className="relative z-10 font-sugo flex flex-col items-center mb-10 mt-20 px-10">
         <h1 className="text-brand-orange md:text-8xl text-7xl font-medium text-center md:-mb-10 -mb-7">DONDE</h1>
