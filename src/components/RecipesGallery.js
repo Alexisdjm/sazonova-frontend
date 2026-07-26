@@ -4,10 +4,10 @@ import { useRecipes } from "../context/RecipesContext";
 import { SazonovaIcon } from "./icons";
 import images from "../assets/exporting";
 const responsive = {
-  superLargeDesktop: { breakpoint: { max: 4000, min: 1366 }, items: 4 },
-  desktop: { breakpoint: { max: 1365, min: 1024 }, items: 3 },
-  tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
-  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
+  superLargeDesktop: { breakpoint: { max: 4000, min: 1366 }, items: 5 },
+  desktop: { breakpoint: { max: 1365, min: 1024 }, items:4 },
+  tablet: { breakpoint: { max: 1024, min: 464 }, items: 3 },
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 2 },
 };
 
 const getColumnsFromWidth = (width) => {
