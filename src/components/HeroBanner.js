@@ -5,6 +5,9 @@ import { OnionIcon, GarlicIcon } from "./icons";
 const bottleBaseClass =
   "lg:w-[175px] lg:h-[350px] w-[clamp(80px,30vw,150px)] h-auto object-contain transition-[filter] duration-300";
 
+/** Misma URL que el preload en public/index.html (LCP del hero). */
+const ajoLcpSrc = `${process.env.PUBLIC_URL || ""}/images/ajo.webp`;
+
 /**
  * @param {object} props
  * @param {React.ReactNode} props.children
@@ -42,8 +45,9 @@ const HeroBanner = ({
             <span className="inline-block group-hover:animate-bob-short">
               <img
                 className={`${bottleBaseClass} rotate-[-10deg] lg:rotate-[-10deg] drop-shadow-[0_10px_16px_rgba(0,0,0,0.35)] group-hover:drop-shadow-[0_16px_28px_rgba(125,3,10,0.75)]`}
-                src={images.ajo}
+                src={ajoLcpSrc}
                 alt={ajoAlt}
+                fetchPriority="high"
               />
             </span>
           </Link>

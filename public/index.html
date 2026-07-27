@@ -44,6 +44,14 @@
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- LCP: botella de ajo del hero — descubrible antes del JS -->
+    <link
+      rel="preload"
+      as="image"
+      href="%PUBLIC_URL%/images/ajo.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
   </head>
   <body>
     <noscript>Activa JavaScript para ver el sitio de Sazonova.</noscript>
