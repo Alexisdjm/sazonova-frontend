@@ -52,6 +52,8 @@ const Header = ({ scrollAware = true }) => {
         className={`fixed top-0 left-0 h-full w-[80%] md:w-[35%] bg-[#f0e5d5] z-[70] transform transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } shadow-2xl flex flex-col`}
+        aria-hidden={!isSidebarOpen}
+        inert={!isSidebarOpen}
       >
         <div className="flex justify-end p-6">
           <button
@@ -77,8 +79,12 @@ const Header = ({ scrollAware = true }) => {
         </div>
 
         <div className="flex justify-center mt-4">
-          <Link to="/" onClick={() => setIsSidebarOpen(false)}>
-            <LogoMixedIcon className="h-40 w-auto" />
+          <Link
+            to="/"
+            onClick={() => setIsSidebarOpen(false)}
+            aria-label="Sazonova — Ir al inicio"
+          >
+            <LogoMixedIcon className="h-40 w-auto" aria-hidden="true" />
           </Link>
         </div>
 
@@ -168,14 +174,14 @@ const Header = ({ scrollAware = true }) => {
               </button>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/" aria-label="Sazonova — Ir al inicio">
                 <img
                   src={
                     useRedAssets
                       ? images.sazonovaLogoRed
                       : images.sazonovaLogoBeige
                   }
-                  alt="Logo"
+                  alt=""
                   className="h-12 w-auto"
                 />
               </Link>

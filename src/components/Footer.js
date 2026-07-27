@@ -120,29 +120,33 @@ const Footer = () => {
           <div className="flex space-x-4">
             <a
               href="/"
+              aria-label="Instagram de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
-              <InstagramIcon className="w-6 h-6 fill-current" />
+              <InstagramIcon className="w-6 h-6 fill-current" aria-hidden="true" />
             </a>
             <a
               href="/"
+              aria-label="X (Twitter) de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>
             </a>
             <a
               href="/"
+              aria-label="TikTok de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
-              <TikTokIcon className="w-5 h-5 fill-current" />
+              <TikTokIcon className="w-5 h-5 fill-current" aria-hidden="true" />
             </a>
             <a
               href="/"
+              aria-label="Facebook de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
                 <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7.5v4H10v9h4v-9z" />
               </svg>
             </a>

@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useRecipes } from "../context/RecipesContext";
 import Carousel from "react-multi-carousel";
@@ -12,6 +13,7 @@ import {
 } from "./CarouselControls";
 import BrandSpin from "./BrandSpin";
 import AnimatedButton from "./AnimatedButton";
+import { useCarouselA11yFix } from "../hooks/useCarouselA11yFix";
 
 const responsive = {
   largeDesktop: {
@@ -34,6 +36,8 @@ const responsive = {
 
 const Recipes = () => {
   const { recipes } = useRecipes();
+  const carouselRef = useRef(null);
+  useCarouselA11yFix(carouselRef);
 
   return (
     <>
@@ -58,7 +62,10 @@ const Recipes = () => {
             marca
           </h3>
         </div>
-        <div className="relative z-10 w-full md:w-[80%] max-w-10xl mx-auto px-2 sm:px-7">
+        <div
+          ref={carouselRef}
+          className="relative z-10 w-full md:w-[80%] max-w-10xl mx-auto px-2 sm:px-7"
+        >
           <Carousel
             responsive={responsive}
             infinite={true}

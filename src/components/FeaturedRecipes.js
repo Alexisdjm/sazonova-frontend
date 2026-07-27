@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import { useRecipes } from "../context/RecipesContext";
 import { isRecipeFeatured } from "../utils/recipeUtils";
@@ -9,6 +9,7 @@ import {
   CustomRightArrow,
   CustomDot,
 } from "./CarouselControls";
+import { useCarouselA11yFix } from "../hooks/useCarouselA11yFix";
 
 const buildResponsive = (count) => {
   const n = Math.max(count, 1);
@@ -34,6 +35,8 @@ const buildResponsive = (count) => {
 
 const FeaturedRecipes = () => {
   const { recipes, isLoading } = useRecipes();
+  const carouselRef = useRef(null);
+  useCarouselA11yFix(carouselRef);
 
   const items = useMemo(() => recipes.filter(isRecipeFeatured), [recipes]);
 
@@ -63,6 +66,7 @@ const FeaturedRecipes = () => {
             No hay resultados...
           </h1>
         ) : (
+          <div ref={carouselRef}>
           <Carousel
             key={`featured-${items.length}`}
             responsive={responsive}
@@ -89,6 +93,7 @@ const FeaturedRecipes = () => {
               />
             ))}
           </Carousel>
+          </div>
         )}
       </div>
     </div>
