@@ -1,16 +1,29 @@
+import { lazy, Suspense } from "react";
 import {
   Header,
   HeroBanner,
   Recipes,
   VideoComponent,
   Slider,
-  MapLocations,
   Compare,
   Form,
   Footer,
   ClickDown,
 } from "./";
 import images from "../assets/exporting";
+
+const MapLocations = lazy(() => import("./MapLocations"));
+
+const MapLocationsFallback = () => (
+  <section
+    id="map-locations"
+    className="w-full relative overflow-hidden bg-transparent scroll-mt-24"
+    aria-hidden="true"
+  >
+    <div className="h-[7.5rem] md:h-40 mt-20 mb-10" />
+    <div className="w-full h-[600px] bg-black/5" />
+  </section>
+);
 
 const Homepage = () => {
   return (
@@ -49,7 +62,9 @@ const Homepage = () => {
       <Recipes />
       <VideoComponent videoSrc={images.video1} />
       <Slider />
-      <MapLocations />
+      <Suspense fallback={<MapLocationsFallback />}>
+        <MapLocations />
+      </Suspense>
       <Compare />
       <Form />
       <Footer />

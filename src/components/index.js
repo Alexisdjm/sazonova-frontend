@@ -17,7 +17,6 @@ export { default as AccordionItem } from "./AccordionItem";
 export { default as NotFound } from "./NotFound";
 export { default as VideoComponent } from "./VideoComponent";
 export { default as Slider } from "./Slider";
-export { default as MapLocations } from "./MapLocations";
 export { default as RepeatingBrandBackground } from "./RepeatingBrandBackground";
 export { default as Compare } from "./Compare";
 export { default as Form } from "./Form";
