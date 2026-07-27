@@ -1,0 +1,16 @@
+# Sazonova
+
+> Sazonova elabora ajo y adobo en polvo para sazonar con autenticidad. Sitio oficial con productos, recetas y puntos de venta.
+
+Sazonova es una marca de condimentos orientada a la cocina cotidiana: productos de ajo y adobo, recetas y ubicaciones donde comprar.
+
+## Páginas principales
+
+- [Inicio](https://mysazonova.com/): Página principal de la marca, productos destacados y mapa de tiendas.
+- [Recetas](https://mysazonova.com/recipes): Listado de recetas que usan productos Sazonova.
+- [Ajo Molido](https://mysazonova.com/product/ajo-molido): Ficha del producto Ajo Molido Sazonova.
+- [Adobo Completo](https://mysazonova.com/product/adobo-completo): Ficha del producto Adobo Completo Sazonova.
+
+## Optional
+
+- [Página no encontrada](https://mysazonova.com/404): Respuesta cuando la ruta no existe.
