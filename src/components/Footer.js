@@ -15,6 +15,8 @@ const rainItems = [
     duration: 15,
     delay: 0,
     width: "90px",
+    imgWidth: 90,
+    imgHeight: 90,
     rotation: "15deg",
     opacity: 1,
     blur: "2px",
@@ -25,6 +27,8 @@ const rainItems = [
     duration: 12,
     delay: 3,
     width: "60px",
+    imgWidth: 60,
+    imgHeight: 60,
     rotation: "-30deg",
     opacity: 1,
     blur: "2px",
@@ -35,6 +39,8 @@ const rainItems = [
     duration: 4,
     delay: 1,
     width: "60px",
+    imgWidth: 60,
+    imgHeight: 76,
     rotation: "45deg",
     opacity: 1,
     blur: "3px",
@@ -45,6 +51,8 @@ const rainItems = [
     duration: 6,
     delay: 5,
     width: "80px",
+    imgWidth: 80,
+    imgHeight: 100,
     rotation: "-10deg",
     opacity: 1,
     blur: "2px",
@@ -55,6 +63,8 @@ const rainItems = [
     duration: 5,
     delay: 8,
     width: "65px",
+    imgWidth: 65,
+    imgHeight: 82,
     rotation: "85deg",
     opacity: 1,
     blur: "2px",
@@ -65,6 +75,8 @@ const rainItems = [
     duration: 8,
     delay: 4,
     width: "75px",
+    imgWidth: 75,
+    imgHeight: 75,
     rotation: "-45deg",
     opacity: 1,
     blur: "2px",
@@ -75,6 +87,8 @@ const rainItems = [
     duration: 7,
     delay: 6,
     width: "85px",
+    imgWidth: 85,
+    imgHeight: 85,
     rotation: "110deg",
     opacity: 1,
     blur: "2px",
@@ -85,6 +99,8 @@ const rainItems = [
     duration: 4,
     delay: 2,
     width: "65px",
+    imgWidth: 65,
+    imgHeight: 81,
     rotation: "15deg",
     opacity: 1,
     blur: "3px",
@@ -128,29 +144,13 @@ const Footer = () => {
               <InstagramIcon className="w-6 h-6 fill-current" aria-hidden="true" />
             </a>
             <a
-              href="/"
-              aria-label="X (Twitter) de Sazonova"
-              className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
-            >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-              </svg>
-            </a>
-            <a
-              href="/"
+              href="https://www.tiktok.com/@sazonova.ve"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="TikTok de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
               <TikTokIcon className="w-5 h-5 fill-current" aria-hidden="true" />
-            </a>
-            <a
-              href="/"
-              aria-label="Facebook de Sazonova"
-              className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
-            >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-                <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7.5v4H10v9h4v-9z" />
-              </svg>
             </a>
           </div>
         </div>

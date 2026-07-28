@@ -2,6 +2,8 @@
 export const SITE_URL = "https://mysazonova.com";
 export const SITE_NAME = "Sazonova";
 export const INSTAGRAM_URL = "https://www.instagram.com/sazonova.ve/";
+export const TIKTOK_URL = "https://www.tiktok.com/@sazonova.ve";
+export const PHONE_TEL = "tel:+584222828001";
 
 const MEAL_TYPE_LABELS = {
   DES: "Desayuno",
@@ -59,7 +61,8 @@ export function buildOrganizationJsonLd() {
     logo: `${SITE_URL}/favicon.png`,
     description:
       "Ajo y adobo en polvo para sazonar con autenticidad. Recetas, productos y puntos de venta Sazonova.",
-    sameAs: [INSTAGRAM_URL],
+    sameAs: [INSTAGRAM_URL, TIKTOK_URL],
+    telephone: "+584222828001",
   };
 }
 

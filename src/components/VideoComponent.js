@@ -18,6 +18,8 @@ const VideoComponent = ({ videoSrc }) => {
         <img
           src={images.sazonovaLogoRed}
           alt="Sazonova Logo"
+          width={403}
+          height={423}
           className="h-[80%] w-auto object-contain drop-shadow-2xl"
         />
       </div>

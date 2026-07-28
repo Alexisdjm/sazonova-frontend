@@ -169,12 +169,12 @@ const Compare = () => {
         </h1>
       </div>
       <div className="absolute -top-10 -bottom-10 -left-10 hidden xl:flex flex-col justify-between z-10">
-        <img className='rotate-[20deg]' width={200}  src={images.ajo} alt="" />
-        <img className='rotate-[20deg]' width={300} src={images.image38} alt="" />
+        <img className='rotate-[20deg]' width={200} height={200} src={images.ajo} alt="" />
+        <img className='rotate-[20deg]' width={300} height={300} src={images.image38} alt="" />
       </div>
       <div className="xl:flex hidden absolute -top-10 -bottom-10 -right-28 flex-col justify-between z-10">
         <img className='rotate-90' height={300} width={300} src={images.image39} alt="" />
-        <img className='rotate-[15deg]' width={200}  src={images.adobo} alt="" />
+        <img className='rotate-[15deg]' width={200} height={200} src={images.adobo} alt="" />
       </div>
     </section>
   );

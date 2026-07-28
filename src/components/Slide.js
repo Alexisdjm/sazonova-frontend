@@ -38,6 +38,8 @@ const Slide = ({
                 <img
                   key={j}
                   src={image}
+                  width={100}
+                  height={105}
                   className="w-[100px] h-auto object-contain"
                   alt=""
                 />

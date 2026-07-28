@@ -141,16 +141,18 @@ const Header = ({ scrollAware = true }) => {
             <InstagramIcon className="h-8 w-8 fill-current" />
           </a>
           <a
-            href="/tiktok"
+            href="https://www.tiktok.com/@sazonova.ve"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:opacity-70 transition-opacity"
-            aria-label="TikTok"
+            aria-label="TikTok de Sazonova"
           >
             <TikTokIcon className="h-8 w-8 fill-current" />
           </a>
           <a
-            href="/llamar"
+            href="tel:+584222828001"
             className="hover:opacity-70 transition-opacity"
-            aria-label="Llamar"
+            aria-label="Llamar a Sazonova"
           >
             <PhoneIcon className="h-8 w-8 fill-current" />
           </a>

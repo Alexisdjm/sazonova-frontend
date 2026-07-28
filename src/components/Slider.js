@@ -64,8 +64,8 @@ const Slider = () => {
                 a su comida
               </h3>
             </div>
-            <img className='z-10 w-[90vw] md:w-[450px] lg:w-[55vh] aspect-4/3 lg:max-w-[550px]' src={images.glass} width={450} alt="glass" />
-            <img src={images.cuchara} width={250} alt="cuchara" className="hidden md:block z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
+            <img className='z-10 w-[90vw] md:w-[450px] lg:w-[55vh] aspect-4/3 lg:max-w-[550px]' src={images.glass} width={450} height={310} alt="glass" />
+            <img src={images.cuchara} width={250} height={250} alt="cuchara" className="hidden md:block z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
             <Vector2Icon className="absolute z-0 top-1/4 lg:w-[100%] right-0 md:top-0" />
           </div>
         </Slide>
@@ -76,13 +76,13 @@ const Slider = () => {
               <span className='font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl relative z-20'>NO SEPARES AL</span>
               <div className="relative inline-block">
                 <h1 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h1>
-                <img src={images.badge1} width={100} alt="badge superior" className="absolute top-0 left-[-40px] z-20" />
-                <img src={images.badge2} width={100} alt="badge inferior" className="absolute bottom-0 right-[-40px] z-20" />
+                <img src={images.badge1} width={100} height={101} alt="badge superior" className="absolute top-0 left-[-40px] z-20" />
+                <img src={images.badge2} width={100} height={101} alt="badge inferior" className="absolute bottom-0 right-[-40px] z-20" />
               </div>
             </div>
-            <img className='z-10 aspect-4/3 lg:w-[60vh] lg:max-w-[650px]' src={images.standings} width={550} alt="glass" />
+            <img className='z-10 aspect-4/3 lg:w-[60vh] lg:max-w-[650px]' src={images.standings} width={550} height={349} alt="glass" />
             </div>
-            <img src={images.hand} width={150} alt="cuchara" className="z-10 absolute bottom-0 left-[48%] animate-up-down" />
+            <img src={images.hand} width={150} height={184} alt="cuchara" className="z-10 absolute bottom-0 left-[48%] animate-up-down" />
             <Vector3Icon className="lg:w-full lg:h-full absolute z-0 top-1/4 right-0" />
           </div>
         </Slide>

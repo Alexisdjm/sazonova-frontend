@@ -28,7 +28,9 @@ const RainEffect = ({ items = [] }) => {
         >
           <img
             src={item.image}
-            alt="rain-drop"
+            alt=""
+            width={item.imgWidth || 100}
+            height={item.imgHeight || 100}
             className="w-full h-auto object-contain"
             style={{ transform: item.rotation ? `rotate(${item.rotation})` : 'none' }}
           />
