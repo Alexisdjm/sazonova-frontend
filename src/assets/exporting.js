@@ -21,7 +21,7 @@ const images = {
   cilantroRain: require("./images/cilantro.webp"),
   onionRain: require("./images/onion.webp"),
   image38: require("./images/pngwing.com (38).webp"),
-  image39: require("./images/pngwing.com (39).webp"),
+  image39: require("./images/cominos.webp"),
   carne1: require("./images/carne1.png"),
   carne2: require("./images/carne2.png"),
   carne3: require("./images/carne3.png"),
