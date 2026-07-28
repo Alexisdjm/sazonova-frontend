@@ -38,7 +38,6 @@ const images = {
   vector3: require("./images/vector3.png"),
   badge1: require("./images/badge1.png"),
   badge2: require("./images/badge2.png"),
-  map: require("./images/map.png"),
   sazonovaLetters: require("./icons/SAZONOVA.webp"),
   plate: require("./images/break-plates.webp"),
   compareBg: require("./images/bg-fusion.webp"),
