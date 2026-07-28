@@ -11,6 +11,11 @@ import {
   ClickDown,
 } from "./";
 import images from "../assets/exporting";
+import JsonLd from "./JsonLd";
+import {
+  buildOrganizationJsonLd,
+  buildWebSiteJsonLd,
+} from "../seo/jsonLd";
 
 const MapLocations = lazy(() => import("./MapLocations"));
 
@@ -28,6 +33,7 @@ const MapLocationsFallback = () => (
 const Homepage = () => {
   return (
     <>
+      <JsonLd data={[buildOrganizationJsonLd(), buildWebSiteJsonLd()]} />
       <Header />
       <HeroBanner
         ajoTo="/product/ajo-molido"

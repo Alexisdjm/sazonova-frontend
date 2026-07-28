@@ -9,6 +9,8 @@ import {
   Breadcrumbs,
 } from "./";
 import { useProducts } from "../context/ProductsContext";
+import JsonLd from "./JsonLd";
+import { buildProductJsonLd } from "../seo/jsonLd";
 
 const ProductPage = () => {
   const { slug } = useParams();
@@ -18,6 +20,10 @@ const ProductPage = () => {
   const relatedProduct = useMemo(
     () => getRelated(slug),
     [getRelated, slug],
+  );
+  const productJsonLd = useMemo(
+    () => buildProductJsonLd(product),
+    [product],
   );
 
   if (!slug?.trim()) {
@@ -45,6 +51,7 @@ const ProductPage = () => {
 
   return (
     <>
+      <JsonLd data={productJsonLd} />
       <Header scrollAware={false} />
       <main className="relative pt-28 md:pt-24 pb-12 md:pb-20">
         <div className="relative z-10">

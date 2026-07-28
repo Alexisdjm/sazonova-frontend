@@ -9,6 +9,9 @@ import {
   Breadcrumbs,
 } from "./";
 import { useRecipes } from "../context/RecipesContext";
+import JsonLd from "./JsonLd";
+import { buildRecipeJsonLd } from "../seo/jsonLd";
+import { getIngredientItems, getSortedSteps } from "../utils/recipeUtils";
 
 const RecipeDetailPage = () => {
   const { slug } = useParams();
@@ -17,6 +20,14 @@ const RecipeDetailPage = () => {
   const recipe = useMemo(
     () => recipes.find((r) => r.slug === slug),
     [recipes, slug],
+  );
+  const recipeJsonLd = useMemo(
+    () =>
+      buildRecipeJsonLd(recipe, {
+        getIngredientItems,
+        getSortedSteps,
+      }),
+    [recipe],
   );
 
   if (!slug?.trim()) {
@@ -33,6 +44,7 @@ const RecipeDetailPage = () => {
 
   return (
     <>
+      <JsonLd data={recipeJsonLd} />
       <Header scrollAware={false} />
       <main className="relative pt-28 md:pt-32 pb-20">
         <RepeatingBrandBackground opacity={0.4} />

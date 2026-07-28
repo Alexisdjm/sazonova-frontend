@@ -132,9 +132,11 @@ const Header = ({ scrollAware = true }) => {
         {/* Íconos Sociales y Contacto */}
         <div className="flex justify-center space-x-6 pb-8 text-[#7D030A]">
           <a
-            href="/instagram"
+            href="https://www.instagram.com/sazonova.ve/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:opacity-70 transition-opacity"
-            aria-label="Instagram"
+            aria-label="Instagram de Sazonova"
           >
             <InstagramIcon className="h-8 w-8 fill-current" />
           </a>

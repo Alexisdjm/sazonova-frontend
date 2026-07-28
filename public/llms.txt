@@ -11,6 +11,10 @@ Sazonova es una marca de condimentos orientada a la cocina cotidiana: productos 
 - [Ajo Molido](https://mysazonova.com/product/ajo-molido): Ficha del producto Ajo Molido Sazonova.
 - [Adobo Completo](https://mysazonova.com/product/adobo-completo): Ficha del producto Adobo Completo Sazonova.
 
+## Redes sociales
+
+- [Instagram](https://www.instagram.com/sazonova.ve/): Perfil oficial de Sazonova Venezuela.
+
 ## Optional
 
 - [Página no encontrada](https://mysazonova.com/404): Respuesta cuando la ruta no existe.

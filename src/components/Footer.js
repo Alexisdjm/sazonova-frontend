@@ -119,7 +119,9 @@ const Footer = () => {
 
           <div className="flex space-x-4">
             <a
-              href="/"
+              href="https://www.instagram.com/sazonova.ve/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
