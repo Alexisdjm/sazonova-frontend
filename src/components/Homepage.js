@@ -11,11 +11,7 @@ import {
   ClickDown,
 } from "./";
 import images from "../assets/exporting";
-import JsonLd from "./JsonLd";
-import {
-  buildOrganizationJsonLd,
-  buildWebSiteJsonLd,
-} from "../seo/jsonLd";
+import { usePageMeta } from "../seo/usePageMeta";
 
 const MapLocations = lazy(() => import("./MapLocations"));
 
@@ -31,9 +27,15 @@ const MapLocationsFallback = () => (
 );
 
 const Homepage = () => {
+  usePageMeta({
+    title: "Sazonova | Ajo y Adobo en Polvo — El Sabor que Define tu Cocina",
+    description:
+      "Sazonova es la marca de ajo molido y adobo en polvo. Descubre los productos, recetas y dónde comprar.",
+    path: "/",
+  });
+
   return (
     <>
-      <JsonLd data={[buildOrganizationJsonLd(), buildWebSiteJsonLd()]} />
       <Header />
       <HeroBanner
         ajoTo="/product/ajo-molido"

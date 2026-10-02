@@ -10,7 +10,8 @@ import {
 } from "./";
 import { useProducts } from "../context/ProductsContext";
 import JsonLd from "./JsonLd";
-import { buildProductJsonLd } from "../seo/jsonLd";
+import { buildBreadcrumbJsonLd, buildProductJsonLd } from "../seo/jsonLd";
+import { toMetaDescription, usePageMeta } from "../seo/usePageMeta";
 
 const ProductPage = () => {
   const { slug } = useParams();
@@ -25,6 +26,27 @@ const ProductPage = () => {
     () => buildProductJsonLd(product),
     [product],
   );
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { name: "Inicio", path: "/" },
+        { name: "Productos", path: "/products/all" },
+        { name: product?.name || "Producto", path: `/product/${slug}` },
+      ]),
+    [product?.name, slug],
+  );
+
+  usePageMeta({
+    title: product
+      ? `${product.name} Sazonova${product.quantity ? ` | ${product.quantity}` : ""}`
+      : "Producto Sazonova",
+    description: toMetaDescription(
+      product?.description,
+      "Ajo molido y adobo en polvo de Sazonova. Condimentos para sazonar cada plato.",
+    ),
+    path: `/product/${slug || ""}`,
+    image: product?.primary_image || undefined,
+  });
 
   if (!slug?.trim()) {
     return <Navigate to="/404" replace />;
@@ -51,7 +73,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <JsonLd data={productJsonLd} />
+      <JsonLd data={[productJsonLd, breadcrumbJsonLd]} />
       <Header scrollAware={false} />
       <main className="relative pt-28 md:pt-24 pb-12 md:pb-20">
         <div className="relative z-10">
@@ -59,7 +81,7 @@ const ProductPage = () => {
             <Breadcrumbs
               items={[
                 { label: "Inicio", to: "/" },
-                { label: "Productos" },
+                { label: "Productos", to: "/products/all" },
                 { label: product.name },
               ]}
             />

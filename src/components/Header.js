@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import images from "../assets/exporting";
 import { LogoMixedIcon, InstagramIcon, TikTokIcon, PhoneIcon } from "./icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 /**
  * @param {boolean} scrollAware
@@ -9,8 +9,19 @@ import { Link } from "react-router-dom";
  * - false (detalle): siempre fondo primary-red + logo/texto/burger beige
  */
 const Header = ({ scrollAware = true }) => {
+  const { pathname, hash } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleInicioClick = (event) => {
+    setIsSidebarOpen(false);
+    if (pathname !== "/") return;
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (hash) {
+      window.history.replaceState(null, "", "/");
+    }
+  };
 
   // En modo dinámico, tras scroll: barra beige e iconos rojos
   const useScrolledBeigeBar = scrollAware && isScrolled;
@@ -93,7 +104,7 @@ const Header = ({ scrollAware = true }) => {
             <li>
               <Link
                 to="/"
-                onClick={() => setIsSidebarOpen(false)}
+                onClick={handleInicioClick}
                 className="hover:opacity-70 transition-opacity font-ubuntu font-medium"
               >
                 Inicio
@@ -115,15 +126,6 @@ const Header = ({ scrollAware = true }) => {
                 className="hover:opacity-70 transition-opacity font-ubuntu font-medium"
               >
                 Recetas
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                onClick={() => setIsSidebarOpen(false)}
-                className="hover:opacity-70 transition-opacity font-ubuntu font-medium"
-              >
-                Nosotros
               </Link>
             </li>
           </ul>

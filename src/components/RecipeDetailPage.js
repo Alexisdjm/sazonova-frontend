@@ -10,8 +10,9 @@ import {
 } from "./";
 import { useRecipes } from "../context/RecipesContext";
 import JsonLd from "./JsonLd";
-import { buildRecipeJsonLd } from "../seo/jsonLd";
-import { getIngredientItems, getSortedSteps } from "../utils/recipeUtils";
+import { buildBreadcrumbJsonLd, buildRecipeJsonLd } from "../seo/jsonLd";
+import { toMetaDescription, usePageMeta } from "../seo/usePageMeta";
+import { getIngredientItems, getSortedSteps, getRecipeImage } from "../utils/recipeUtils";
 
 const RecipeDetailPage = () => {
   const { slug } = useParams();
@@ -29,6 +30,26 @@ const RecipeDetailPage = () => {
       }),
     [recipe],
   );
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { name: "Inicio", path: "/" },
+        { name: "Recetas", path: "/recipes" },
+        { name: recipe?.name || "Receta", path: `/recipes/${slug}` },
+      ]),
+    [recipe?.name, slug],
+  );
+
+  usePageMeta({
+    title: recipe ? `${recipe.name} | Receta Sazonova` : "Receta Sazonova",
+    description: toMetaDescription(
+      recipe?.description,
+      "Receta Sazonova con ajo molido y adobo en polvo.",
+    ),
+    path: `/recipes/${slug || ""}`,
+    image: recipe ? getRecipeImage(recipe) : undefined,
+    type: "article",
+  });
 
   if (!slug?.trim()) {
     return <Navigate to="/404" replace />;
@@ -44,7 +65,7 @@ const RecipeDetailPage = () => {
 
   return (
     <>
-      <JsonLd data={recipeJsonLd} />
+      <JsonLd data={[recipeJsonLd, breadcrumbJsonLd]} />
       <Header scrollAware={false} />
       <main className="relative pt-28 md:pt-32 pb-20">
         <RepeatingBrandBackground opacity={0.4} />

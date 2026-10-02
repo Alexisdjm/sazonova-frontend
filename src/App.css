@@ -19,3 +19,107 @@ html {
 body {
   background-color: var(--bg-color);
 }
+
+/* Mismo fondo del hero de productos, para el recorte del contorno del título. */
+.bg-products-split {
+  background-image:
+    radial-gradient(circle at center, #e30613 0%, #7d030a 100%),
+    radial-gradient(circle at center, #f6b15a 0%, #e47e1a 58%, #c86508 100%);
+  background-size:
+    50% 100%,
+    50% 100%;
+  background-position:
+    left center,
+    right center;
+  background-repeat: no-repeat;
+}
+
+.products-title-stroke::before {
+  background-image:
+    radial-gradient(circle at center, #e30613 0%, #7d030a 100%),
+    radial-gradient(circle at center, #f6b15a 0%, #e47e1a 58%, #c86508 100%);
+  background-size:
+    50% 100%,
+    50% 100%;
+  background-position:
+    left center,
+    right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 16px transparent;
+}
+
+.products-title-stroke-script::before {
+  -webkit-text-stroke-width: 12px;
+}
+
+/* Móvil del hero de productos: un solo degradado, el mismo que pinta el contorno. */
+.bg-products-red {
+  background-image: radial-gradient(circle at center, #e30613 0%, #7d030a 100%);
+}
+
+.bg-products-orange {
+  background-image: radial-gradient(
+    circle at center,
+    #f6b15a 0%,
+    #e47e1a 58%,
+    #c86508 100%
+  );
+}
+
+.products-tone-orange {
+  transition: opacity 1.2s ease-in-out;
+}
+
+@media (max-width: 1023px) {
+  [data-tone] .products-title-stroke::before,
+  [data-tone] .products-title-stroke::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 16px transparent;
+    pointer-events: none;
+  }
+
+  [data-tone] .products-title-stroke::before {
+    background-image: radial-gradient(circle at center, #e30613 0%, #7d030a 100%);
+  }
+
+  [data-tone] .products-title-stroke::after {
+    background-image: radial-gradient(
+      circle at center,
+      #f6b15a 0%,
+      #e47e1a 58%,
+      #c86508 100%
+    );
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+  }
+
+  [data-tone="adobo"] .products-title-stroke::after {
+    opacity: 1;
+  }
+
+  [data-tone] .products-title-stroke-script::before,
+  [data-tone] .products-title-stroke-script::after {
+    -webkit-text-stroke-width: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .products-tone-orange,
+  [data-tone] .products-title-stroke::after {
+    transition: none;
+  }
+}

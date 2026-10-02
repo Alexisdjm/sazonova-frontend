@@ -171,11 +171,6 @@ const Footer = () => {
                     Recetas
                   </a>
                 </li>
-                <li>
-                  <a href="/" className="hover:opacity-80 transition">
-                    Nosotros
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -188,7 +183,12 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/" className="hover:opacity-80 transition">
+                  <a
+                    href="https://www.instagram.com/distribuidoragrimar_24/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition"
+                  >
                     Distribuidora Grimar
                   </a>
                 </li>

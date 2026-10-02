@@ -1,6 +1,14 @@
 import { Header, Footer, Breadcrumbs } from "./";
+import { usePageMeta } from "../seo/usePageMeta";
 
 export default function NotFound() {
+  usePageMeta({
+    title: "Página no encontrada | Sazonova",
+    description: "Esta página no existe en el sitio de Sazonova.",
+    path: "/404",
+    robots: "noindex, follow",
+  });
+
   return (
     <>
       <Header scrollAware={false} />

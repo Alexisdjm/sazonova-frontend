@@ -7,10 +7,35 @@ import {
   Breadcrumbs,
 } from "./";
 import images from "../assets/exporting";
+import JsonLd from "./JsonLd";
+import { useRecipes } from "../context/RecipesContext";
+import {
+  buildBreadcrumbJsonLd,
+  buildRecipeItemListJsonLd,
+} from "../seo/jsonLd";
+import { usePageMeta } from "../seo/usePageMeta";
 
 const RecipesPage = () => {
+  const { recipes } = useRecipes();
+
+  usePageMeta({
+    title: "Recetas Sazonova | Cocina con Ajo Molido y Adobo",
+    description:
+      "Recetas Sazonova con ajo molido y adobo: alitas, tostones, empanadas y pabellón criollo.",
+    path: "/recipes",
+  });
+
   return (
     <>
+      <JsonLd
+        data={[
+          buildRecipeItemListJsonLd(recipes),
+          buildBreadcrumbJsonLd([
+            { name: "Inicio", path: "/" },
+            { name: "Recetas", path: "/recipes" },
+          ]),
+        ]}
+      />
       <Header />
       <HeroBanner
         ajoTo="/product/ajo-molido"
