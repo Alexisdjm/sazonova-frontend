@@ -61,9 +61,9 @@ const RecipesGallery = () => {
         {isLoading ? (
           <p className="text-center py-8 font-ubuntu">Cargando recetas...</p>
         ) : recipes.length === 0 ? (
-          <h1 className="text-center py-8 font-sugo text-2xl">
+          <h2 className="text-center py-8 font-sugo text-2xl">
             No hay resultados...
-          </h1>
+          </h2>
         ) : (
           <div
             className="grid gap-x-6"

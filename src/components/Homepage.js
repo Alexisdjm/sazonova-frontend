@@ -42,18 +42,21 @@ const Homepage = () => {
         adoboTo="/product/adobo-completo"
       >
         <div className="w-full flex flex-col items-center mb-[clamp(5rem,20vh,7rem)] lg:mb-0">
-          <h1
+          <h1 className="mb-1 font-sugo text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-[6px] text-secondary-beige text-center">
+            Sazonova
+          </h1>
+          <h2
             data-text="el sabor"
             className="isolate relative text-8xl lg:text-9xl font-medium font-sugo text-secondary-beige text-center uppercase tracking-[5px] before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:bg-hero-gradient before:bg-fixed before:bg-clip-text before:text-transparent before:[-webkit-text-stroke:16px_transparent]"
           >
             el sabor
-          </h1>
-          <h2
+          </h2>
+          <h3
             data-text="que define"
             className="isolate -mt-7 lg:-mt-9 relative text-7xl lg:text-8xl font-sugo text-secondary-beige text-center uppercase tracking-[5px] before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:bg-hero-gradient before:bg-fixed before:bg-clip-text before:text-transparent before:[-webkit-text-stroke:16px_transparent]"
           >
             que define
-          </h2>
+          </h3>
           <h3
             data-text="tu cocina"
             className="isolate -mt-8 lg:-mt-10 relative text-8xl lg:text-9xl font-calling-heart text-secondary-beige text-center lowercase before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:bg-hero-gradient before:bg-fixed before:bg-clip-text before:text-transparent before:[-webkit-text-stroke:12px_transparent]"

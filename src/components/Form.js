@@ -114,9 +114,9 @@ const Form = () => {
         <h3 className="text-brand-orange md:text-5xl text-3xl font-semibold text-center letter">
           Quieres ser parte
         </h3>
-        <h1 className="text-brand-orange md:text-6xl text-4xl font-bold text-center">
+        <h2 className="text-brand-orange md:text-6xl text-4xl font-bold text-center">
           DE NUESTROS
-        </h1>
+        </h2>
         <h2
           data-text="distribuidores?"
           className="-my-2 isolate relative text-primary-red font-calling-heart md:text-8xl text-6xl font-medium text-center before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_var(--bg-color)]"

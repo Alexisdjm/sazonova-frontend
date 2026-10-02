@@ -62,9 +62,9 @@ const FeaturedRecipes = () => {
             Cargando recetas destacadas...
           </p>
         ) : items.length === 0 ? (
-          <h1 className="text-center py-8 font-sugo text-2xl">
+          <h2 className="text-center py-8 font-sugo text-2xl">
             No hay resultados...
-          </h1>
+          </h2>
         ) : (
           <div ref={carouselRef}>
           <Carousel

@@ -27,9 +27,7 @@ const Breadcrumbs = ({ items = [], className = "" }) => {
               {showLink ? (
                 <Link
                   to={item.to}
-                  className={`transition-colors ${
-                    index === 0 ? "font-medium" : ""
-                  }`}
+                  className="font-medium underline decoration-primary-red/40 underline-offset-2 transition-opacity hover:opacity-70"
                 >
                   {item.label}
                 </Link>

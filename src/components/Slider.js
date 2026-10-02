@@ -54,9 +54,9 @@ const Slider = () => {
         <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={false}>
           <div className="w-full h-screen md:h-full flex items-center gap-6 flex-col justify-end max-h-[800px]">
             <div className='text-center mb-2 relative z-10'>
-              <h1 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h1>
+              <h2 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h2>
               <span className='font-ubuntu text-secondary-beige text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
-              <h1 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h1>
+              <h2 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h2>
               <h3
                 data-text="a su comida"
                 className='isolate relative z-10 font-calling-heart -mt-10 text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_var(--gradient-dark-red)] before:text-primary-red'
@@ -75,7 +75,7 @@ const Slider = () => {
             <div className='text-center mb-2 relative z-10 flex flex-col items-center'>
               <span className='font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl relative z-20'>NO SEPARES AL</span>
               <div className="relative inline-block">
-                <h1 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h1>
+                <h2 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h2>
                 <img src={images.badge1} width={100} height={101} alt="badge superior" className="absolute top-0 left-[-40px] z-20" />
                 <img src={images.badge2} width={100} height={101} alt="badge inferior" className="absolute bottom-0 right-[-40px] z-20" />
               </div>

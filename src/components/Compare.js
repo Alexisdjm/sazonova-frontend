@@ -132,9 +132,9 @@ const Compare = () => {
         >
           <div className="h-full flex items-center">
             <div className="w-3/5 mx-auto rotate-[7deg]">
-              <h1 className="font-pangolin text-secondary-beige text-8xl font-medium leading-tight">
+              <h2 className="font-pangolin text-secondary-beige text-8xl font-medium leading-tight">
                 Ajo En Polvo
-              </h1>
+              </h2>
               <p className="font-pangolin text-secondary-beige text-3xl font-medium w-3/5 pt-20 leading-snug">
                 El alma de la receta. Una explosión de especias para quienes no temen a la intensidad.
               </p>
@@ -151,9 +151,9 @@ const Compare = () => {
               <p className="font-pangolin text-secondary-beige text-3xl font-medium w-3/5 text-right leading-snug">
                 Tu solución todo en uno. Dale a tus platos un carácter vibrante y un color inconfundible.
               </p>
-              <h1 className="font-pangolin text-secondary-beige text-8xl font-medium text-right pt-20 leading-tight">
+              <h2 className="font-pangolin text-secondary-beige text-8xl font-medium text-right pt-20 leading-tight">
                 Adobo
-              </h1>
+              </h2>
             </div>
           </div>
         </div>
@@ -161,12 +161,12 @@ const Compare = () => {
 
       {/* Título separado (no comparte flex con los textos) */}
       <div className="absolute inset-x-0 bottom-12 z-30 flex flex-col items-center justify-center pointer-events-none">
-        <h4 className="font-sugo text-secondary-beige text-4xl xl:text-5xl font-medium">
+        <h3 className="font-sugo text-secondary-beige text-4xl xl:text-5xl font-medium">
           ¿Con cuál
-        </h4>
-        <h1 className="font-sugo uppercase text-secondary-beige text-6xl xl:text-8xl font-medium text-center">
+        </h3>
+        <h2 className="font-sugo uppercase text-secondary-beige text-6xl xl:text-8xl font-medium text-center">
           Sabe mejor?
-        </h1>
+        </h2>
       </div>
       <div className="absolute -top-10 -bottom-10 -left-10 hidden xl:flex flex-col justify-between z-10">
         <img className='rotate-[20deg]' width={200} height={200} src={images.ajo} alt="" />

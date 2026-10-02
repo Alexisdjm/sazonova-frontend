@@ -186,8 +186,8 @@ const MapLocations = () => {
       <RepeatingBrandBackground />
 
       <div className="relative z-10 font-sugo flex flex-col items-center mb-10 mt-20 px-10">
-        <h1 className="text-brand-orange md:text-8xl text-7xl font-medium text-center md:-mb-10 -mb-7">DONDE</h1>
-        <h2 data-text="encontrarnos?" className="isolate relative text-primary-red font-calling-heart md:text-8xl text-7xl font-medium text-center before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_var(--bg-color)]">encontrarnos?</h2>
+        <h2 className="text-brand-orange md:text-8xl text-7xl font-medium text-center md:-mb-10 -mb-7">DONDE</h2>
+        <h3 data-text="encontrarnos?" className="isolate relative text-primary-red font-calling-heart md:text-8xl text-7xl font-medium text-center before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_var(--bg-color)]">encontrarnos?</h3>
       </div>
       {/* El contenedor debe tener tamaño exacto para que mapbox sepa donde dibujarse */}
       <div className="relative w-full h-[600px] z-10 rounded-xl shadow-lg ring-1 ring-gray-200" ref={mapContainer} />

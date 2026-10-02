@@ -49,12 +49,12 @@ const Recipes = () => {
           >
             conoce
           </h2>
-          <h1
+          <h2
             data-text="nuestra"
             className="isolate relative uppercase font-sugo md:-mt-6 -mt-4 md:text-8xl text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:16px_#650208]"
           >
             nuestra
-          </h1>
+          </h2>
           <h3
             data-text="marca"
             className="isolate relative font-calling-heart md:-mt-10 -mt-6 md:text-8xl text-7xl font-bold text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_#650208]"
