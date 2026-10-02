@@ -37,10 +37,7 @@ const RecipesPage = () => {
         ]}
       />
       <Header />
-      <HeroBanner
-        ajoTo="/product/ajo-molido"
-        adoboTo="/product/adobo-completo"
-      >
+      <HeroBanner ajoTo="/product/ajo-molido" adoboTo="/product/adobo-completo">
         <div className="w-full flex flex-col items-center mb-[clamp(5rem,20vh,7rem)] lg:mb-0">
           <h1 className="mb-1 font-sugo text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-[6px] text-secondary-beige text-center">
             Sazonova
@@ -72,10 +69,7 @@ const RecipesPage = () => {
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-8 relative z-10">
           <Breadcrumbs
-            items={[
-              { label: "Inicio", to: "/" },
-              { label: "Recetas" },
-            ]}
+            items={[{ label: "Inicio", to: "/" }, { label: "Recetas" }]}
           />
         </div>
         <RecipesGallery />

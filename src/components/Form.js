@@ -151,7 +151,9 @@ const Form = () => {
                 value={form.company}
                 onChange={handleChange}
                 aria-invalid={!!fieldErrors.company}
-                aria-describedby={fieldErrors.company ? "company-error" : undefined}
+                aria-describedby={
+                  fieldErrors.company ? "company-error" : undefined
+                }
                 className={`bg-[var(--bg-color)] rounded-xl px-4 py-3 outline-none focus:ring-2 transition ${
                   fieldErrors.company
                     ? "ring-2 ring-red-800 focus:ring-red-800"
@@ -159,7 +161,10 @@ const Form = () => {
                 }`}
               />
               {fieldErrors.company && (
-                <p id="company-error" className="text-white/95 font-ubuntu text-xs pl-2">
+                <p
+                  id="company-error"
+                  className="text-white/95 font-ubuntu text-xs pl-2"
+                >
                   {fieldErrors.company}
                 </p>
               )}
@@ -190,7 +195,10 @@ const Form = () => {
                 }`}
               />
               {fieldErrors.contact_name && (
-                <p id="contact_name-error" className="text-white/95 font-ubuntu text-xs pl-2">
+                <p
+                  id="contact_name-error"
+                  className="text-white/95 font-ubuntu text-xs pl-2"
+                >
                   {fieldErrors.contact_name}
                 </p>
               )}
@@ -222,7 +230,10 @@ const Form = () => {
                 }`}
               />
               {fieldErrors.email && (
-                <p id="email-error" className="text-white/95 font-ubuntu text-xs pl-2">
+                <p
+                  id="email-error"
+                  className="text-white/95 font-ubuntu text-xs pl-2"
+                >
                   {fieldErrors.email}
                 </p>
               )}

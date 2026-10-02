@@ -93,7 +93,11 @@ body {
   }
 
   [data-tone] .products-title-stroke::before {
-    background-image: radial-gradient(circle at center, #e30613 0%, #7d030a 100%);
+    background-image: radial-gradient(
+      circle at center,
+      #e30613 0%,
+      #7d030a 100%
+    );
   }
 
   [data-tone] .products-title-stroke::after {

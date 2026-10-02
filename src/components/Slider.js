@@ -1,14 +1,14 @@
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import images from '../assets/exporting';
-import { Vector2Icon, Vector3Icon } from './icons';
-import Slide from './Slide';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import images from "../assets/exporting";
+import { Vector2Icon, Vector3Icon } from "./icons";
+import Slide from "./Slide";
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
   tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
-  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
 };
 
 const CustomLeftArrow = ({ onClick }) => {
@@ -18,8 +18,19 @@ const CustomLeftArrow = ({ onClick }) => {
       className="absolute left-6 md:left-10 z-10 p-3 md:p-4 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/70 text-white transition-all focus:outline-none"
       aria-label="Previous slide"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-7 h-7 md:w-8 md:h-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2.5}
+        stroke="currentColor"
+        className="w-7 h-7 md:w-8 md:h-8"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"
+        />
       </svg>
     </button>
   );
@@ -32,8 +43,19 @@ const CustomRightArrow = ({ onClick }) => {
       className="absolute right-6 md:right-10 z-10 p-3 md:p-4 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/70 text-white transition-all focus:outline-none"
       aria-label="Next slide"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-7 h-7 md:w-8 md:h-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2.5}
+        stroke="currentColor"
+        className="w-7 h-7 md:w-8 md:h-8"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
       </svg>
     </button>
   );
@@ -45,44 +67,95 @@ const Slider = () => {
       <Carousel
         responsive={responsive}
         infinite={true}
-        removeArrowOnDeviceType={["mobile","tablet"]}
+        removeArrowOnDeviceType={["mobile", "tablet"]}
         customLeftArrow={<CustomLeftArrow />}
         customRightArrow={<CustomRightArrow />}
         containerClass="w-full md:h-full h-screen z-10"
         itemClass="w-full md:h-full h-screen"
       >
-        <Slide buttonStyle='style1' image={images.sazonovaLogoRed} background="red-logo" button={false}>
+        <Slide
+          buttonStyle="style1"
+          image={images.sazonovaLogoRed}
+          background="red-logo"
+          button={false}
+        >
           <div className="w-full h-screen md:h-full flex items-center gap-6 flex-col justify-end max-h-[800px]">
-            <div className='text-center mb-2 relative z-10'>
-              <h2 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]'>Rompa</h2>
-              <span className='font-ubuntu text-secondary-beige text-[24px] tracking-widest drop-shadow-2xl'>en caso de que le falte</span>
-              <h2 className='font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]'>sazón</h2>
+            <div className="text-center mb-2 relative z-10">
+              <h2 className="font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mb-[-1rem]">
+                Rompa
+              </h2>
+              <span className="font-ubuntu text-secondary-beige text-[24px] tracking-widest drop-shadow-2xl">
+                en caso de que le falte
+              </span>
+              <h2 className="font-sugo text-secondary-beige text-9xl font-bold uppercase tracking-widest drop-shadow-2xl mt-[-0.3rem]">
+                sazón
+              </h2>
               <h3
                 data-text="a su comida"
-                className='isolate relative z-10 font-calling-heart -mt-10 text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_var(--gradient-dark-red)] before:text-primary-red'
+                className="isolate relative z-10 font-calling-heart -mt-10 text-6xl font-medium text-secondary-beige before:content-[attr(data-text)] before:absolute before:inset-0 before:-z-10 before:[-webkit-text-stroke:12px_var(--gradient-dark-red)] before:text-primary-red"
               >
                 a su comida
               </h3>
             </div>
-            <img className='z-10 w-[90vw] md:w-[450px] lg:w-[55vh] aspect-4/3 lg:max-w-[550px]' src={images.glass} width={450} height={310} alt="glass" />
-            <img src={images.cuchara} width={250} height={250} alt="cuchara" className="hidden md:block z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]" />
+            <img
+              className="z-10 w-[90vw] md:w-[450px] lg:w-[55vh] aspect-4/3 lg:max-w-[550px]"
+              src={images.glass}
+              width={450}
+              height={310}
+              alt="glass"
+            />
+            <img
+              src={images.cuchara}
+              width={250}
+              height={250}
+              alt="cuchara"
+              className="hidden md:block z-10 rotate-[-75deg] absolute top-1/4 right-[-3rem]"
+            />
             <Vector2Icon className="absolute z-0 top-1/4 lg:w-[100%] right-0 md:top-0" />
           </div>
         </Slide>
-        <Slide buttonStyle='style2' background="orange-lines" button={false}>
+        <Slide buttonStyle="style2" background="orange-lines" button={false}>
           <div className="w-full h-full flex items-center justify-center">
             <div className="w-full h-full flex items-center  flex-col justify-end">
-            <div className='text-center mb-2 relative z-10 flex flex-col items-center'>
-              <span className='font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl relative z-20'>NO SEPARES AL</span>
-              <div className="relative inline-block">
-                <h2 className='font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20'>DUO</h2>
-                <img src={images.badge1} width={100} height={101} alt="badge superior" className="absolute top-0 left-[-40px] z-20" />
-                <img src={images.badge2} width={100} height={101} alt="badge inferior" className="absolute bottom-0 right-[-40px] z-20" />
+              <div className="text-center mb-2 relative z-10 flex flex-col items-center">
+                <span className="font-sugo text-secondary-beige text-5xl tracking-widest drop-shadow-2xl relative z-20">
+                  NO SEPARES AL
+                </span>
+                <div className="relative inline-block">
+                  <h2 className="font-sugo text-secondary-beige text-[250px] -mt-24 -mb-20">
+                    DUO
+                  </h2>
+                  <img
+                    src={images.badge1}
+                    width={100}
+                    height={101}
+                    alt="badge superior"
+                    className="absolute top-0 left-[-40px] z-20"
+                  />
+                  <img
+                    src={images.badge2}
+                    width={100}
+                    height={101}
+                    alt="badge inferior"
+                    className="absolute bottom-0 right-[-40px] z-20"
+                  />
+                </div>
               </div>
+              <img
+                className="z-10 aspect-4/3 lg:w-[60vh] lg:max-w-[650px]"
+                src={images.standings}
+                width={550}
+                height={349}
+                alt="glass"
+              />
             </div>
-            <img className='z-10 aspect-4/3 lg:w-[60vh] lg:max-w-[650px]' src={images.standings} width={550} height={349} alt="glass" />
-            </div>
-            <img src={images.hand} width={150} height={184} alt="cuchara" className="z-10 absolute bottom-0 left-[48%] animate-up-down" />
+            <img
+              src={images.hand}
+              width={150}
+              height={184}
+              alt="cuchara"
+              className="z-10 absolute bottom-0 left-[48%] animate-up-down"
+            />
             <Vector3Icon className="lg:w-full lg:h-full absolute z-0 top-1/4 right-0" />
           </div>
         </Slide>

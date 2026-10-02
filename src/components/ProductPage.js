@@ -18,14 +18,8 @@ const ProductPage = () => {
   const { getBySlug, getRelated, isLoading } = useProducts();
 
   const product = useMemo(() => getBySlug(slug), [getBySlug, slug]);
-  const relatedProduct = useMemo(
-    () => getRelated(slug),
-    [getRelated, slug],
-  );
-  const productJsonLd = useMemo(
-    () => buildProductJsonLd(product),
-    [product],
-  );
+  const relatedProduct = useMemo(() => getRelated(slug), [getRelated, slug]);
+  const productJsonLd = useMemo(() => buildProductJsonLd(product), [product]);
   const breadcrumbJsonLd = useMemo(
     () =>
       buildBreadcrumbJsonLd([

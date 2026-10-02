@@ -141,7 +141,10 @@ const Footer = () => {
               aria-label="Instagram de Sazonova"
               className="bg-secondary-beige text-primary-red rounded-full w-10 h-10 flex items-center justify-center hover:opacity-80 transition"
             >
-              <InstagramIcon className="w-6 h-6 fill-current" aria-hidden="true" />
+              <InstagramIcon
+                className="w-6 h-6 fill-current"
+                aria-hidden="true"
+              />
             </a>
             <a
               href="https://www.tiktok.com/@sazonova.ve"

@@ -37,10 +37,7 @@ const Homepage = () => {
   return (
     <>
       <Header />
-      <HeroBanner
-        ajoTo="/product/ajo-molido"
-        adoboTo="/product/adobo-completo"
-      >
+      <HeroBanner ajoTo="/product/ajo-molido" adoboTo="/product/adobo-completo">
         <div className="w-full flex flex-col items-center mb-[clamp(5rem,20vh,7rem)] lg:mb-0">
           <h1 className="mb-1 font-sugo text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-[6px] text-secondary-beige text-center">
             Sazonova

@@ -12,7 +12,11 @@ import { useRecipes } from "../context/RecipesContext";
 import JsonLd from "./JsonLd";
 import { buildBreadcrumbJsonLd, buildRecipeJsonLd } from "../seo/jsonLd";
 import { toMetaDescription, usePageMeta } from "../seo/usePageMeta";
-import { getIngredientItems, getSortedSteps, getRecipeImage } from "../utils/recipeUtils";
+import {
+  getIngredientItems,
+  getSortedSteps,
+  getRecipeImage,
+} from "../utils/recipeUtils";
 
 const RecipeDetailPage = () => {
   const { slug } = useParams();

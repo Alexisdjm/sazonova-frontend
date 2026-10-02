@@ -21,7 +21,9 @@ const ScrollToTopButton = () => {
       aria-label="Volver arriba"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={`fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-primary-red text-secondary-beige shadow-[0_8px_16px_rgba(125,3,10,0.35)] transition-opacity duration-300 hover:opacity-90 ${
-        visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        visible
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
       }`}
     >
       <svg
