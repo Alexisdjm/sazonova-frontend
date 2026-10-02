@@ -1,0 +1,21 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Sazonova",
+    "documentationUrl": "https://mysazonova.com/llms.txt",
+    "logoUrl": "https://mysazonova.com/og-image.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:mysazonova.com:site:llms",
+      "displayName": "Sazonova",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://mysazonova.com/llms.txt",
+      "description": "Descripción oficial de Sazonova para agentes: ajo molido, adobo completo, recetas y dónde comprar.",
+      "representativeQueries": [
+        "qué es Sazonova",
+        "dónde comprar ajo molido y adobo Sazonova"
+      ]
+    }
+  ]
+}
