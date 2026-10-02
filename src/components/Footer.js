@@ -165,7 +165,7 @@ const Footer = () => {
               <h4 className="text-xl font-medium mb-4">Menú</h4>
               <ul className="space-y-3 font-light text-1xl font-ubuntu">
                 <li>
-                  <a href="/" className="hover:opacity-80 transition">
+                  <a href="/products/all/" className="hover:opacity-80 transition">
                     Productos
                   </a>
                 </li>

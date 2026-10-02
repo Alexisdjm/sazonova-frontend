@@ -112,7 +112,7 @@ const Header = ({ scrollAware = true }) => {
             </li>
             <li>
               <Link
-                to="/products/all"
+                to="/products/all/"
                 onClick={() => setIsSidebarOpen(false)}
                 className="hover:opacity-70 transition-opacity font-ubuntu font-medium"
               >

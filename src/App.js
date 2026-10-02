@@ -30,7 +30,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/recipes" element={<RecipesPage />} />
               <Route path="/recipes/:slug" element={<RecipeDetailPage />} />
-              <Route path="/products/all" element={<ProductsPage />} />
+              <Route path="/products/all/" element={<ProductsPage />} />
               <Route path="/product/:slug" element={<ProductPage />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" />} />
